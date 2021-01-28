@@ -2,6 +2,8 @@
 
 hash-folia - Transforma texto em uma composição de *visual hashes*
 
+![Imagem de exemplo para input "blouco"](https://github.com/blouco/hash-folia/raw/main/exemplo-blouco.png)
+
 Este projeto está sendo desenvolvido para gerar os Estandartes do
 [OpenBlouco](https:;//openblouco.readthedocs.io). Muito em construção!!!
 
