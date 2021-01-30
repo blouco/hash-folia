@@ -2,3 +2,4 @@ Pillow
 Flask
 Robohash
 Vizhash
+git+git://github.com/ulif/diceware/
