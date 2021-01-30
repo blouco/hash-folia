@@ -41,7 +41,7 @@ $ flask run
 ```
 
 O arquivo `hashfolia.wsgi` é uma base para executar o aplicativo Flask em um
-servidor de produção.
+[servidor de produção](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps).
 
 ## Licença
 
