@@ -4,6 +4,7 @@ import base64
 from io import BytesIO
 import sys
 import os
+import re
 
 import random
 from subprocess import Popen, PIPE 
@@ -86,12 +87,16 @@ def hashfolia_img(seed):
     return vizhash_img
 
 
+def clean(seed):
+    return re.sub('[^A-Za-z0-9_]', '', seed)
+
 @app.route('/')
 def index():
     return 'Uso: /TEXTO-DA-SEMENTE. Exemplo: <a href="/volooptaz">/volooptaz</a>'
 
 @app.route('/<seed>.png')
 def get_image(seed):
+    seed = clean(seed)
     img = hashfolia_img(seed)
     filename = '/tmp/hashfolia-' + seed + '.png'
     img.save(filename)
@@ -102,6 +107,7 @@ def get_image(seed):
 
 @app.route('/<seed>')
 def get_hashfolia_img(seed):
+    seed = clean(seed)
     return render_template('hashfolia.html', seed=seed, palavras=hashfolia_palavras(seed), taro=hashfolia_taro(seed))
 
 if __name__ == "__main__":
