@@ -46,15 +46,3 @@ O arquivo `hashfolia.wsgi` é uma base para executar o aplicativo Flask em um
 ## Licença
 
 A licença usada para o código, incluindo a adaptação do `arrival_logograms`, é a MIT License, descrita em `LICENSE`.
-
-## Trabalho futuro
-
-uma “senha” de N (a definir) palavras escolhidas da lista Diceware -- ex: .
-Seus componentes são utilizados para criar:
-O nome do documento do próximo Estandarte
-O nome da stream de transmissão da Banda
-O nome do ambiente do Desfile
-Uma arte composta de: “visual hashes” / “identicons” relacionados à frase
-Um arcano maior e menor do tarô
-Por enquanto usando o Marsella por ser domínio público mas parece que o RWS
-também é :-)
