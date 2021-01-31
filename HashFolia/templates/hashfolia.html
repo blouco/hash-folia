@@ -25,19 +25,10 @@
         <div class="senhas-e-arcanos">
 
 
-		<h2>Senhas</h2>
-
-		<ul>
-			{% for palavra in palavras %}
-			<li>{{ palavra }}</li>
-			{% endfor %}
-		</ul>
+			<img style="float: left; width: 150px; padding-left: 30px" src="/{{ taro.0.img }}" />
+			<img style="float: right; width: 150px; padding-right: 30px" src="/{{ taro.1.img }}" />
 
 		<h2>Arcanos</h2>
-		<ul>
-			<li>{{ taro.0.name }}</li>
-			<li>{{ taro.1.name }}</li>
-		</ul>
 		</div>
         <div class="hash col-xs-6">
 		<h2>Imagem</h2>
