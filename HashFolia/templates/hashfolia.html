@@ -19,23 +19,34 @@
 	</style>
 </head>
 <body>
-<h1>Hash Folia! - {{ seed }}</h1>
 <div class="container">
+	<h1 style"text-align: center">Hash Folia! - {{ seed }}</h1>
     <div class="row estandarte">
-        <div class="senhas-e-arcanos">
+		<div class="hash text-center col-md-4">
+			<h2>Imagem</h2>
 
+			<img width="250px" src="/{{ seed }}.png" />
+		</div>
+        <div class="arcanos text-center col-md-4">
 
+			<h2>Arcanos</h2>
 			<img style="float: left; width: 150px; padding-left: 30px" src="/{{ taro.0.img }}" />
 			<img style="float: right; width: 150px; padding-right: 30px" src="/{{ taro.1.img }}" />
 
-		<h2>Arcanos</h2>
 		</div>
-        <div class="hash col-xs-6">
-		<h2>Imagem</h2>
+        <div class="senhas text-center col-md-4">
 
-		<img src="/{{ seed }}.png" />
+			<h2>Senhas</h2>
+
+			<ul>
+				{% for palavra in palavras %}
+				<li>{{ palavra }}</li>
+				{% endfor %}
+			</ul>
 		</div>
     </div>
+
+	<hr />
 
 	<div class="row">
 		<div class="info">
@@ -50,18 +61,14 @@
 				<a href="https://antonieta.vedetas.org/p/{{ palavras.0 }}" rel="noreferrer noopener">https://antonieta.vedetas.org/p/{{palavras.0}} </a>
 				</p>
 
-				<hr />
-
-				<h3>♃ Porta-Estandarte </h3>
+				<h4>♃ Porta-Estandarte </h4>
 
 				<ul>
 					<li>Cria Estandarte com o conteúdo do HashFolia</li>
 					<li>Consagra Puxadoras lhes concedendo acesso ao Estandarte</li>
 				</ul>
 
-				<hr />
-
-				<h3>♂ Puxadoras</h3>
+				<h4>♂ Puxadoras</h4>
 
 				<ul>
 					<li>Acessam o Estandarte para consultar as informações</li>
@@ -81,14 +88,10 @@
 				<a href="https://meet.jit.si/{{ palavras.1 }}" rel="noreferrer noopener">https://meet.jit.si/{{ palavras.1 }}</a>
 				</p>
 
-				<hr />
-
-
-				<h3>☉ Mixers</h3>
+				<h4>♀ Passistas</h4>
 
 				<ul>
-					<li>Recebe Artistas no Trio e coordena suas contribuições</li>
-					<li>Transmite seu mix para o seu Bonde e para a Rua, caso seja a Mixer principal</li>
+					<li>Acompanham o Bonde</li>
 					<li>Acessam o Estandarte para consultar as informações</li>
 				</ul>
 
@@ -96,10 +99,9 @@
 
 				
 				<h3>🎙️ Trio 🌊</h3>
-					
 				
-				<p>
 				<h4>Sala da Mixer</h4>
+				<p>
 				<ul>
 					<li>Direção: <a href="https://obs.ninja/?director={{ palavras.2 }}" rel="noreferrer noopener">https://obs.ninja/?director={{ palavras.2 }}</a></li>
 					<li>Artistas: <a href="https://obs.ninja/?room={{ palavras.2 }}" rel="noreferrer noopener">https://obs.ninja/?room={{ palavras.2 }}</a></li>
@@ -111,28 +113,16 @@
 				<p>
 				<a href="https://obs.ninja/?director={{ palavras.3 }}" rel="noreferrer noopener">https://obs.ninja/?director={{ palavras.3 }}</a>
 				</p>
-
-				<hr />
-
-				<h3>♀ Passistas</h3>
+					
+				<h4>☉ Mixer</h4>
 
 				<ul>
-					<li>Acompanham o Bonde</li>
+					<li>Recebe Artistas no Trio e coordena suas contribuições</li>
+					<li>Transmite seu mix para o seu Bonde e para a Rua, caso seja a Mixer principal</li>
 					<li>Acessam o Estandarte para consultar as informações</li>
 				</ul>
 
 				<hr />
-				
-
-				<h3>☿ Cordões</h3>
-
-				<ul>
-					<li>Fazem o intermédio entre o Trio e os Bondes, ambientes mais restritos e centrais, e o Papo, o ambiente onde o público incauto da Web vindo da Rua pode interagir com o blouco para além de assistir a Transmissão. </li>
-					<li>Consagram Passistas concedendo acesso aos Bondes</li>
-					<li>Consagram Artistas concedendo acesso aos Trios</li>
-				</ul>
-				
-				</hr />
 				
 				<h3>💬 Papo 🌬️</h3>
 
@@ -144,6 +134,15 @@
 				<p>
 				<a href="https://kiwiirc.com/nextclient/chat.freenode.org/#{{ palavras.4 }}_Cordao" rel="noreferrer noopener">https://kiwiirc.com/nextclient/chat.freenode.org/#{{ palavras.4 }}_Cordao</a> / irc.freenode.org #{{ palavras.4 }}_Cordao
 				</p>
+
+				<h4>☿ Cordões</h4>
+
+				<ul>
+					<li>Fazem o intermédio entre o Trio e os Bondes, ambientes mais restritos e centrais, e o Papo, o ambiente onde o público incauto da Web vindo da Rua pode interagir com o blouco para além de assistir a Transmissão. </li>
+					<li>Consagram Passistas concedendo acesso aos Bondes</li>
+					<li>Consagram Artistas concedendo acesso aos Trios</li>
+				</ul>
+				
 
 				<hr />
 
@@ -164,7 +163,7 @@
 				</ul>
 				</p>
 
-				<h3>☽ Incautas</h3>
+				<h4>☽ Incautas</h4>
 
 				<ul>
 					<li>Têm contato com o blouco através da Rua, publicada em algum lugar onde ela tem acesso</li>
