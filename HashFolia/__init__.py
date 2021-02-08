@@ -28,7 +28,7 @@ def porta_estandarte():
     bonde = request.args.get('bonde')
 
     seed = '{estandarte}{bonde}'.format(**locals())
-    pag_titulo = 'Página da Estandarte!'
+    pag_titulo = 'Página da Porta-estandarte!'
     pag_descricao = seed
     pag_imagem = url_for('hash_imagem', seed=seed)
 
