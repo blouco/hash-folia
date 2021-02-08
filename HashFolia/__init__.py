@@ -55,7 +55,7 @@ def index():
     return 'Uso: /hash/TEXTO-DA-SEMENTE. Exemplo: <a href="/hash/volooptaz">/volooptaz</a>'
 
 @app.route('/hash/<seed>.png')
-def get_image(seed):
+def hash_imagem(seed):
     seed = clean(seed)
     blouco_ = Blouco(seed)
     img = blouco_.hashfolia.avatar
@@ -64,12 +64,12 @@ def get_image(seed):
     return send_file(filename, mimetype='image/png')
 
 @app.route('/hash/<seed>')
-def get_hashfolia_img(seed):
+def hash_completo(seed):
     seed = clean(seed)
     blouco_ = Blouco(seed)
     frases = [''.join(p[0]) for p in blouco_.hashfolia.frases]
     taro = blouco_.hashfolia.taro
-    return render_template('hashfolia.html', seed=seed, frases=frases, taro=taro, blouco=blouco_)
+    return render_template('hashfolia.html', seed=seed, frases=frases, taro=taro, blouco=blouco_, reseed=md5(seed.encode('utf-8')).hexdigest())
 
 if __name__ == "__main__":
     app.run()
