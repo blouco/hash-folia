@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<title>HashFolia! - {{ seed }}</title>
 	<meta property="og:title" content="Hashfolia: {{ seed }}">
-	<meta property="og:description" content="Hashfolia: {{ seed }}">
 	<meta property="og:image" content="/{{ seed }}.png">
+	<meta property="og:image" content="/hash/{{ seed }}.png">
 	<meta property="og:url"
 		  content="https://blouco.volooptaz.art">
 	<!-- Bootstrap core CSS -->
@@ -24,8 +24,8 @@
     <div class="row estandarte">
 		<div class="hash text-center col-md-4">
 			<h2>Imagem</h2>
-
 			<img width="250px" src="/{{ seed }}.png" />
+			<img width="250px" src="/hash/{{ seed }}.png" />
 		</div>
         <div class="arcanos text-center col-md-4">
 
@@ -39,8 +39,8 @@
 			<h2>Senhas</h2>
 
 			<ul>
-				{% for palavra in palavras %}
-				<li>{{ palavra }}</li>
+				{% for frase in frases %}
+				<li>{{ frase }}</li>
 				{% endfor %}
 			</ul>
 		</div>
@@ -50,60 +50,31 @@
 
 	<div class="row">
 		<div class="info">
-				<h2>Criação do Blouco</h2>
+<pre>
 
-				<h3>🗒️ Estandarte 🌀</h3>
-				
-				
-				<h4>Documento colaborativo</h4>
-				
-				<p>
-				<a href="https://antonieta.vedetas.org/p/{{ palavras.0 }}" rel="noreferrer noopener">https://antonieta.vedetas.org/p/{{palavras.0}} </a>
-				</p>
 
-				
-				<h3>💃 Bondes 🔥</h3>
+PORTA ESTANDARTE
+{{ request.url_root }}{{ blouco.porta_estandarte }}
 
-				<h4>Bonde semente</h4>
+PUXADORAS
+{{ request.url_root }}{{ blouco.puxadoras }}
 
-				<p>
-				<a href="https://meet.jit.si/{{ palavras.1 }}" rel="noreferrer noopener">https://meet.jit.si/{{ palavras.1 }}</a>
-				</p>
+ARTISTAS
+{{ request.url_root }}{{ blouco.artistas }}
 
-				
-				<h3>🎙️ Trio 🌊</h3>
-				
-				<h4>Sala da Mixer</h4>
-				<p>
-					<a href="https://ojack.xyz/LiveLab/?room={{ palavras.2 }}" rel="noreferrer noopener">https://ojack.xyz/LiveLab/?room={{ palavras.2 }}</a>
-				</p>
-					
+MIXERS
+{{ request.url_root }}{{ blouco.mixers }}
 
-				<hr />
-				
-				<h3>💬 Papo 🌬️</h3>
+PASSISTAS
+{{ request.url_root }}{{ blouco.passistas }}
 
-				<h4>Sala principal</h4>
-				<p>
-				<a href="https://kiwiirc.com/nextclient/chat.freenode.org/#{{ palavras.4 }}" rel="noreferrer noopener">https://kiwiirc.com/nextclient/chat.freenode.org/#{{ palavras.4 }}</a> / irc.freenode.org #{{ palavras.4 }}</p>
-				
-				<h4>Sala do Cordão: </h4>
-				<p>
-				<a href="https://kiwiirc.com/nextclient/chat.freenode.org/#{{ palavras.4 }}_Cordao" rel="noreferrer noopener">https://kiwiirc.com/nextclient/chat.freenode.org/#{{ palavras.4 }}_Cordao</a> / irc.freenode.org #{{ palavras.4 }}_Cordao
-				</p>
+CORDÕES
+{{ request.url_root }}{{ blouco.cordoes }}
 
-				
-				<h3>🌐 Rua 🌱</h3>
+INCAUTAS
+{{ request.url_root }}{{ blouco.incautas }}
 
-				<h4>Doc de boas vindas:</h4>
-				<p>
-				<a href="https://antonieta.vedetas.org/p/{{ palavras.5 }}" rel="noreferrer noopener">https://antonieta.vedetas.org/p/{{ palavras.5 }}</a>
-				</p>
-				
-				<h4>Página web:</h4>
-				<p>
-				<a href="https://blouco.neocities.org/{{ palavras.6 }}.html" rel="noreferrer noopener">https://blouco.neocities.org/{{ palavras.6 }}.html</a> 
-				</p>
+</pre>
 		</div>
 	</div>
 </div>
