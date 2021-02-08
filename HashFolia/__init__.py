@@ -4,7 +4,7 @@ import re
 
 from hashlib import md5
 
-from flask import Flask, request
+from flask import Flask, request, url_for
 from flask import render_template, send_file
 
 try:
@@ -26,6 +26,12 @@ def blouco():
 def porta_estandarte():
     estandarte = request.args.get('estandarte')
     bonde = request.args.get('bonde')
+
+    seed = '{estandarte}{bonde}'.format(**locals())
+    pag_titulo = 'Página da Estandarte!'
+    pag_descricao = seed
+    pag_imagem = url_for('hash_imagem', seed=seed)
+
     return render_template('porta_estandarte.html', **locals())
 
 @app.route('/puxadoras/')
@@ -52,7 +58,13 @@ def cordoes():
 def incautas():
     papo = request.args.get('papo')
     transmissao = request.args.get('transmissao')
-    return render_template('incautas.html', papo=papo, transmissao=transmissao)
+
+    seed = '{papo}{transmissao}'.format(**locals())
+    pag_titulo = 'Página da Incauta!'
+    pag_descricao = seed
+    pag_imagem = url_for('hash_imagem', seed=seed)
+
+    return render_template('incautas.html', **locals())
 
 @app.route('/')
 def index():

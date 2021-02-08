@@ -8,16 +8,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <meta property="og:title" content="Blouco">
-    <meta property="og:description" content="BodeAludidoExcretor">
-    <meta property="og:image" content="https://blouco.neocities.org/EnsaioDoBlouco.png">
-    <meta property="og:url" content="https://blouco.neocities.org">
+    <meta property="og:title" content="{{ pag_titulo }}">
+    <meta property="og:description" content="{{ pag_descricao }}">
+    <meta property="og:image" content="{{ pag_imagem }}">
+    <meta property="og:url" content="{{ request.url_path }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:site_name" content="Blouco">
-    <meta name="twitter:image:alt" content="">
+    <meta name="twitter:image:alt" content="{{ pag_imagem }}">
     <meta name="twitter:site" content="@_blouco">
 
-    <title>Segue o Blouco!</title>
+	<title>{{ pag_titulo }} +  {{ pag_descricao }}</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
