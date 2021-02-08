@@ -46,7 +46,6 @@ def cordoes():
 
 @app.route('/incautas/')
 def incautas():
-    request.args.get('papo')
     papo = request.args.get('papo')
     transmissao = request.args.get('transmissao')
     return render_template('incautas.html', papo=papo, transmissao=transmissao)
