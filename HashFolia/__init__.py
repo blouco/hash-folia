@@ -2,6 +2,8 @@
 # -*- encoding: utf-8 -*-
 import re
 
+from hashlib import md5
+
 from flask import Flask, request
 from flask import render_template, send_file
 
