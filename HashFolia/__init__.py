@@ -24,7 +24,9 @@ def blouco():
 
 @app.route('/porta_estandarte/')
 def porta_estandarte():
-    return 'aguarde...'
+    estandarte = request.args.get('estandarte')
+    bonde = request.args.get('bonde')
+    return render_template('porta_estandarte.html', **locals())
 
 @app.route('/puxadoras/')
 def puxadoras():
