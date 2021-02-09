@@ -52,7 +52,15 @@ def passistas():
 
 @app.route('/cordoes/')
 def cordoes():
-    return 'aguarde...'
+    papo = request.args.get('papo')
+    bonde = request.args.get('bonde')
+
+    seed = '{papo}{bonde}'.format(**locals())
+    pag_titulo = 'Página das Cordões!'
+    pag_descricao = seed
+    pag_imagem = url_for('hash_imagem', seed=seed)
+
+    return render_template('cordoes.html', **locals())
 
 @app.route('/incautas/')
 def incautas():

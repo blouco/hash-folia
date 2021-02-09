@@ -1,0 +1,53 @@
+{% extends 'esqueleto.html' %}
+{% block conteudo %}
+  <div class="container-fluid">
+    {% if seed %}
+    <div class="row topo">
+		  <!-- Banner principal-->
+		  <div class="col-md-offset-6 col-md-12 text-center">
+			  <img style="width: 300px;" src="{{ pag_imagem }}" />
+			  <p>{{ seed }}</p>
+		  </div>
+    </div>
+	{% endif %}
+    <div class="row bonde">
+	<h1><a href="https://meet.jit.si/Blouco_{{bonde}}">Bonde</a></h1>
+      <div id="bonde" class="embed-responsive embed-responsive-1by1">
+		<script src="https://meet.jit.si/external_api.js"></script>
+		<script>
+			var domain = "meet.jit.si";
+			var options = {
+				roomName: "Blouco_{{bonde}}",
+				width: "100%",
+				height: 600,
+				parentNode: document.querySelector('#bonde'),
+				configOverwrite: {},
+				interfaceConfigOverwrite: {}
+			}
+			var api = new JitsiMeetExternalAPI(domain, options);
+		</script>
+      </div>
+    </div>
+	<h1><a href="https://kiwiirc.com/nextclient/chat.freenode.org/?nick=Cordao_%3F#Blouco_{{ papo }},Blouco_{{ papo }}_Cordao">Papo</a></h1>
+	
+	<div class="card">
+		<div class="card-header">
+		  Destaque
+		</div>
+		<div class="card-body">
+		  <h5 class="card-title"></h5>
+		  <div class="papo-embed embed-responsive embed-responsive-1by1">
+			  <iframe class="embed-responsive-item"src="https://kiwiirc.com/nextclient/chat.freenode.org/?nick=Cordao_%3F#Blouco_{{ papo }},Blouco_{{ papo }}_Cordao"
+			  style="border:5; width:100%; height:100%;"></iframe>
+		  </div>
+		</div>
+	  </div>
+	  <br>
+    <div class="row blouco">
+		<h1><a href="https://www.youtube.com/watch?v={% if transmissao %}{{ transmissao }}{% else %}_2KJ0WuxuRI{% endif %}">Transmissão do Trio</a></h1>
+      <div class="youtube-embed col-xs-7 col-md-12 embed-responsive embed-responsive-1by1">
+		  <iframe src="https://www.youtube.com/embed/{% if transmissao %}{{ transmissao }}{% else %}_2KJ0WuxuRI{% endif %}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+{% endblock %}
