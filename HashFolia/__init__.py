@@ -52,15 +52,23 @@ def passistas():
 
 @app.route('/cordoes/')
 def cordoes():
-    return 'aguarde...'
+    papo = request.args.get('papo')
+    bonde = request.args.get('bonde')
+
+    seed = '{papo}{bonde}'.format(**locals())
+    pag_titulo = 'Página das Cordões!'
+    pag_descricao = seed
+    pag_imagem = url_for('hash_imagem', seed=seed)
+
+    return render_template('cordoes.html', **locals())
 
 @app.route('/incautas/')
 def incautas():
     papo = request.args.get('papo')
     transmissao = request.args.get('transmissao')
 
-    seed = '{papo}{transmissao}'.format(**locals())
-    pag_titulo = 'Página da Incauta!'
+    seed = '{transmissao}{papo}'.format(**locals())
+    pag_titulo = 'Página das Incautas!'
     pag_descricao = seed
     pag_imagem = url_for('hash_imagem', seed=seed)
 

@@ -1,12 +1,15 @@
 {% extends 'esqueleto.html' %}
 {% block conteudo %}
   <div class="container-fluid">
+    {% if seed %}
     <div class="row topo">
-      <!-- Banner principal-->
-      <div class="col-md-offset-6 col-md-12 text-center">
-		  <img style="width: 300px;" src="{{ pag_imagem }}" />
-      </div>
+		  <!-- Banner principal-->
+		  <div class="col-md-offset-6 col-md-12 text-center">
+			  <img style="width: 300px;" src="{{ pag_imagem }}" />
+			  <p>{{ seed }}</p>
+		  </div>
     </div>
+	{% endif %}
 	<h1>Porta-estandarte </h1>
 
 	<div class="card">
@@ -21,8 +24,7 @@
 	  </div>
 	  <br>
     <div class="row bonde">
-      <!-- Chat -->
-	  <h2>Bonde</h2>
+	<h1><a href="https://meet.jit.si/Blouco_{{bonde}}">Bonde</a></h1>
       <div id="bonde" class="embed-responsive embed-responsive-1by1">
 		<script src="https://meet.jit.si/external_api.js"></script>
 		<script>
