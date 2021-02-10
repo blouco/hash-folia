@@ -1,35 +1,64 @@
 {% extends 'esqueleto.html' %}
 {% block conteudo %}
-  <div class="container-fluid">
-    {% if seed %}
-    <div class="row topo">
-		  <!-- Banner principal-->
-		  <div class="col-md-offset-6 col-md-12 text-center">
-			  <img style="width: 300px;" src="{{ pag_imagem }}" />
-			  <p>{{ seed }}</p>
-		  </div>
-    </div>
-	{% endif %}
-	<h1>Transmissão do Trio</h1>
-	<div class="card">
-		<div class="card-header">
-		  Destaque
+
+<!--Plano de Fundo-->
+<style type="text/css">
+	body {
+		background-color: #aa00ff;
+	}
+</style>
+
+
+<div class="container-fluid">
+	{% if seed %}
+	<div class="row topo">
+
+		<!-- Banner principal-->
+		<div class="container-fluid">
+			<div class="jumbotron jumbotron-fluid bg-transparent text-white">
+				<div class="container-fluid  text-center">
+					<img style="width: 25%" src="{{ pag_imagem }}" />
+					<p>{{ seed }}</p>
+					{% endif %}
+				</div>
+			</div>
 		</div>
-		<div class="card-body">
-		  <h5 class="card-title"></h5>
-		  <div class="youtube-embed embed-responsive embed-responsive-1by1">
-			  <!-- incluir transmissão real: {{ transmissao }} -->
-			  <iframe src="https://www.youtube.com/embed/_2KJ0WuxuRI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		  </div>
+
+		<!-- Conteúdo -->
+		<div class="container-fluid">
+			<div class="jumbotron jumbotron-fluid m-3 p-4 bg-dark text-white">
+				<h2 class="display-5"><b>Transmissão do Trio</b>
+				</h2>
+				<hr class="my-4 bg-light">
+				<div class="card-body">
+					<h5 class="card-title"></h5>
+					<div class="youtube-embed embed-responsive embed-responsive-4by3">
+						<!-- incluir transmissão real: {{ transmissao }} -->
+						<iframe src="https://www.youtube.com/embed/_2KJ0WuxuRI" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
+					</div>
+				</div>
+				<br>
+
+				<h2 class="display-5"><b>Papo</b>
+				</h2>
+				<hr class="my-4 bg-light">
+				<!-- Chat -->
+				<div class="papo col-xs-7 col-md-12 embed-responsive embed-responsive-4by3">
+					<iframe class="embed-responsive-item"
+						src="https://kiwiirc.com/nextclient/chat.freenode.org/?nick=Incauta_%3F#Blouco_{{ papo }}"
+						style="border:5; width:100%; height:100%;"></iframe>
+				</div>
+				{% endblock %}
+			</div>
 		</div>
-	  </div>
-	  <br>
-    <div class="row blouco">
-      <!-- Chat -->
-      <div class="papo col-xs-7 col-md-12 embed-responsive embed-responsive-1by1">
-		  <iframe class="embed-responsive-item"src="https://kiwiirc.com/nextclient/chat.freenode.org/?nick=Incauta_%3F#Blouco_{{ papo }}"
-          style="border:5; width:100%; height:100%;"></iframe>
-      </div>
-    </div>
-  </div>
-{% endblock %}
+
+		<!--Rodapé-->
+		<div class="container-fluid">
+			<div class="jumbotron jumbotron-fluid bg-transparent text-white ">
+				<div class="container-fluid text-right">
+					<h6 class="display-6"><a href="#" class="badge badge-dark">Topo ↑</a></h6>
+				</div>
+			</div>
+		</div>
