@@ -1,0 +1,84 @@
+{% extends 'esqueleto.html' %}
+{% block conteudo %}
+
+<!--Plano de Fundo-->
+<style type="text/css">
+	body {
+		background-color: #fbc02d;
+	}
+</style>
+
+
+<div class="container-fluid">
+	{% if seed %}
+	<div class="row topo">
+
+		<!-- Banner principal-->
+		<div class="container-fluid">
+			<div class="jumbotron jumbotron-fluid bg-transparent text-white">
+				<div class="container-fluid  text-center">
+					<img style="width: 25%" src="{{ pag_imagem }}" />
+					<p>{{ seed }}</p>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+
+		<!-- Conteúdo -->
+		<div class="container-fluid">
+			<div class="jumbotron jumbotron-fluid m-3 p-4 bg-dark text-white">
+                <h2 class="display-5"><b>Estandarte</b></h2>
+				<hr class="my-4 bg-light">
+				<div class="card">
+					<div class="card-header bg-dark">
+						<h4>Fluxo da Atividade</h4>
+					</div>
+				</div>
+				<div class="card-body">
+
+                    <!-- Inserir Pad-->
+
+				</div>
+
+                <h2 class="display-5"><b>Bonde</b></h2>
+				<hr class="my-4 bg-light">
+                <div>
+                    <!-- Inserir Jitsi -->
+                </div>
+
+                <h2 class="display-5"><b>Papo</b></h2>
+				<hr class="my-4 bg-light">
+                <div>
+                    <h4>Sala Principal</h4>
+                    <div>
+                    <!-- Inserir Kiwiirc da sala principal -->
+                    </div>
+                    <br>
+                    <h4>Sala do Cordão</h4>
+                    <div>
+                    <!-- Inserir Kiwiirc da sala do cordão -->
+                    </div>
+                    
+                </div>
+                <br>
+
+                <h2 class="display-5"><b>Sala da Mixer</b></h2>
+				<hr class="my-4 bg-light">
+                <div>
+                    <!-- Inserir sala de controle -->
+                </div>
+
+
+				{% endblock %}
+			</div>
+		</div>
+
+		<!--Rodapé-->
+		<div class="container-fluid">
+			<div class="jumbotron jumbotron-fluid bg-transparent text-white ">
+				<div class="container-fluid text-right">
+					<h6 class="display-6"><a href="#" class="badge badge-dark">Topo ↑</a></h6>
+				</div>
+			</div>
+		</div>
+
