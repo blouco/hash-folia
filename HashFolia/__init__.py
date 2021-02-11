@@ -36,26 +36,63 @@ def porta_estandarte():
 
 @app.route('/puxadoras/')
 def puxadoras():
-    return 'aguarde...'
+    estandarte = request.args.get('estandarte')
+    bonde = request.args.get('bonde')
+    papo = request.args.get('papo')
+
+    seed = '{estandarte}{bonde}{papo}'.format(**locals())
+    pag_titulo = 'Página das Puxadoras!'
+    pag_descricao = seed
+    pag_imagem = url_for('hash_imagem', seed=seed)
+
+    return render_template('puxadoras.html', **locals())
 
 @app.route('/mixers/')
 def mixers():
-    return 'aguarde...'
+    estandarte = request.args.get('estandarte')
+    bonde = request.args.get('bonde')
+    papo = request.args.get('papo')
+    trio = request.args.get('trio')
+
+    seed = '{papo}{trio}{bonde}{estandarte}'.format(**locals())
+    pag_titulo = 'Página das Mixers!'
+    pag_descricao = seed
+    pag_imagem = url_for('hash_imagem', seed=seed)
+
+    return render_template('mixers.html', **locals())
 
 @app.route('/artistas/')
 def artistas():
-    return 'aguarde...'
+    estandarte = request.args.get('estandarte')
+    bonde = request.args.get('bonde')
+    papo = request.args.get('papo')
+    trio = request.args.get('trio')
+
+    seed = '{estandarte}{bonde}{trio}'.format(**locals())
+    pag_titulo = 'Página das Artistas!'
+    pag_descricao = seed
+    pag_imagem = url_for('hash_imagem', seed=seed)
+
+    return render_template('artistas.html', **locals())
 
 @app.route('/passistas/')
 def passistas():
-    return 'aguarde...'
+    estandarte = request.args.get('estandarte')
+    bonde = request.args.get('bonde')
+
+    seed = '{estandarte}{bonde}'.format(**locals())
+    pag_titulo = 'Página das Passistas!'
+    pag_descricao = seed
+    pag_imagem = url_for('hash_imagem', seed=seed)
+
+    return render_template('passistas.html', **locals())
 
 @app.route('/cordoes/')
 def cordoes():
     papo = request.args.get('papo')
     bonde = request.args.get('bonde')
 
-    seed = '{papo}{bonde}'.format(**locals())
+    seed = '{bonde}{papo}'.format(**locals())
     pag_titulo = 'Página das Cordões!'
     pag_descricao = seed
     pag_imagem = url_for('hash_imagem', seed=seed)

@@ -120,19 +120,19 @@ class Blouco(Divindade):
 
     @property
     def artistas(self):
-        return 'artistas/?bonde={bonde.codigo}&estandarte={estandarte.codigo}&papo={papo.codigo}&trio={trio.codigo}'.format(**vars(self))
+        return 'artistas/?bonde={bonde.codigo}&estandarte={estandarte.codigo}&trio={trio.codigo}'.format(**vars(self))
 
     @property
     def mixers(self):
-        return self.artistas + '&mixer=sim'
+        return 'mixers/?bonde={bonde.codigo}&estandarte={estandarte.codigo}&papo={papo.codigo}&trio={trio.codigo}'.format(**vars(self))
 
     @property
     def passistas(self):
-        return 'passistas/?bonde={bonde.codigo}&papo={papo.codigo}'.format(**vars(self))
+        return 'passistas/?estandarte={estandarte.codigo}&bonde={bonde.codigo}'.format(**vars(self))
 
     @property
     def cordoes(self):
-        return 'cordoes/?bonde={bonde.codigo}&papo={papo.codigo}&trio={trio.codigo}'.format(**vars(self))
+        return 'cordoes/?bonde={bonde.codigo}&papo={papo.codigo}'.format(**vars(self))
 
     @property
     def incautas(self):
