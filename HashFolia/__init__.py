@@ -30,7 +30,7 @@ def porta_estandarte():
     seed = '{estandarte}{bonde}'.format(**locals())
     pag_titulo = 'Página da Porta-estandarte!'
     pag_descricao = seed
-    pag_imagem = url_for('hash_imagem', seed=seed)
+    pag_imagem = url_for('static', filename='avatares/porta_estandarte.png')
 
     return render_template('porta_estandarte.html', **locals())
 
@@ -43,7 +43,7 @@ def puxadoras():
     seed = '{estandarte}{bonde}{papo}'.format(**locals())
     pag_titulo = 'Página das Puxadoras!'
     pag_descricao = seed
-    pag_imagem = url_for('hash_imagem', seed=seed)
+    pag_imagem = url_for('static', filename='avatares/puxadoras.png')
 
     return render_template('puxadoras.html', **locals())
 
@@ -57,7 +57,7 @@ def mixers():
     seed = '{papo}{trio}{bonde}{estandarte}'.format(**locals())
     pag_titulo = 'Página das Mixers!'
     pag_descricao = seed
-    pag_imagem = url_for('hash_imagem', seed=seed)
+    pag_imagem = url_for('static', filename='avatares/mixers.png')
 
     return render_template('mixers.html', **locals())
 
@@ -71,7 +71,7 @@ def artistas():
     seed = '{estandarte}{bonde}{trio}'.format(**locals())
     pag_titulo = 'Página das Artistas!'
     pag_descricao = seed
-    pag_imagem = url_for('hash_imagem', seed=seed)
+    pag_imagem = url_for('static', filename='avatares/artistas.png')
 
     return render_template('artistas.html', **locals())
 
@@ -83,7 +83,7 @@ def passistas():
     seed = '{estandarte}{bonde}'.format(**locals())
     pag_titulo = 'Página das Passistas!'
     pag_descricao = seed
-    pag_imagem = url_for('hash_imagem', seed=seed)
+    pag_imagem = url_for('static', filename='avatares/passistas.png')
 
     return render_template('passistas.html', **locals())
 
@@ -95,7 +95,7 @@ def cordoes():
     seed = '{bonde}{papo}'.format(**locals())
     pag_titulo = 'Página das Cordões!'
     pag_descricao = seed
-    pag_imagem = url_for('hash_imagem', seed=seed)
+    pag_imagem = url_for('static', filename='avatares/cordoes.png')
 
     return render_template('cordoes.html', **locals())
 
@@ -107,7 +107,7 @@ def incautas():
     seed = '{transmissao}{papo}'.format(**locals())
     pag_titulo = 'Página das Incautas!'
     pag_descricao = seed
-    pag_imagem = url_for('hash_imagem', seed=seed)
+    pag_imagem = url_for('static', filename='avatares/incautas.png')
 
     return render_template('incautas.html', **locals())
 
