@@ -1,6 +1,7 @@
 {% extends 'esqueleto.html' %}
 {% block conteudo %}
 
+
 <!--Plano de Fundo-->
 <style type="text/css">
 	body {
@@ -26,11 +27,11 @@
 
 		<!-- Conteúdo -->
 		<div class="container-fluid">
-			<div class="jumbotron jumbotron-fluid m-3 p-4 bg-dark text-white">
+			<div class="jumbotron jumbotron-fluid  bg-dark text-white">
                 
-                <h2 class="display-5"><b>Bonde</b></h2>
+                <h2 class="display-5 m-2 p-2"><b>Bonde</b></h2>
 				<hr class="my-4 bg-light">
-				<div id="bonde" class="embed-responsive embed-responsive-4by3">
+				<div id="bonde" class="embed-responsive embed-responsive-1by1" style="width:100%; height:550px">
 					<script src="https://meet.jit.si/external_api.js"></script>
 					<script>
 						var domain = "meet.jit.si";
@@ -45,9 +46,9 @@
 						var api = new JitsiMeetExternalAPI(domain, options);
 					</script>
 				</div>
-				<h2 class="display-5"><b>Estandarte</b></h2>
+				<h2 class="display-5 m-2 p-2"><b>Estandarte</b></h2>
 				<hr class="my-4 bg-light">
-				<div class="card">
+				<div>
 					<div class="card-header bg-dark">
 						<h4>Fluxo da Atividade</h4>
 					</div>
@@ -56,7 +57,7 @@
 					<div class="etherpad-embed">
 						<iframe name="embed_readwrite"
 							src="https://pad.bloucos.art/p/Blouco_{{ estandarte }}?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false"
-							width="100%" height="400px" frameborder="0"></iframe>
+							width="100%" height="550px" frameborder="0"></iframe>
 					</div>
 				</div>
 
