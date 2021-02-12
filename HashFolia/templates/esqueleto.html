@@ -42,6 +42,13 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="#">Blouco{% if pag_titulo %} - {{ pag_titulo }}{% endif %}</a>
+		<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+				<li class="nav-item">
+					<a class="nav-link" href="/hash/">HashFolia</a>
+				</li>
+			</ul>
+		</div>
     </nav>
 
     {% block conteudo %}{% endblock %}
