@@ -1,6 +1,10 @@
 {% extends 'esqueleto.html' %}
 {% block conteudo %}
 
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
 <!--Plano de Fundo-->
 <style type="text/css">
 	body {
@@ -26,10 +30,10 @@
 
 		<!-- Conteúdo -->
 		<div class="container-fluid">
-			<div class="jumbotron jumbotron-fluid m-3 p-4 bg-dark text-white">
-                <h2 class="display-5"><b>Estandarte</b></h2>
+			<div class="jumbotron jumbotron-fluid  bg-dark text-white">
+                <h2 class="display-5 m-2 p-2"><b>Estandarte</b></h2>
 				<hr class="my-4 bg-light">
-				<div class="card">
+				<div>
 					<div class="card-header bg-dark">
 						<h4>Fluxo da Atividade</h4>
 					</div>
@@ -39,14 +43,14 @@
 					<div class="etherpad-embed">
 						<iframe name="embed_readwrite"
 							src="https://pad.bloucos.art/p/Blouco_{{ estandarte }}?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false"
-							width="100%" height="400px" frameborder="0"></iframe>
+							width="100%" height="550px" frameborder="0"></iframe>
 					</div>
 
 				</div>
 
-                <h2 class="display-5"><b>Bonde</b></h2>
+                <h2 class="display-5 m-2 p-2"><b>Bonde</b></h2>
 				<hr class="my-4 bg-light">
-				<div id="bonde" class="embed-responsive embed-responsive-4by3">
+				<div id="bonde" class="embed-responsive embed-responsive-1by1" style="width:100%; height:550px">
 					<script src="https://meet.jit.si/external_api.js"></script>
 					<script>
 						var domain = "meet.jit.si";
@@ -62,36 +66,36 @@
 					</script>
 				</div>
 
-                <h2 class="display-5"><b>Papo</b></h2>
+                <h2 class="display-5 m-2 p-2"><b>Papo</b></h2>
 				<hr class="my-4 bg-light">
                 <div>
-				<div>
-					<div class="card">
-						<div class="card-body">
+					<div style="width:100%; height:550px">
+						<div>
 							<h5 class="card-title"></h5>
-							<div class="papo-embed embed-responsive embed-responsive-4by3">
-								<iframe class="embed-responsive-item"
+							<div>
+								<iframe class="embed-responsive embed-responsive-1by1"
 									src="https://kiwiirc.com/nextclient/chat.freenode.org/?nick=Cordao_%3F#Blouco_{{ papo }},Blouco_{{ papo }}_Cordao"
-									style="border:5; width:100%; height:100%;"></iframe>
+									style="border:5; width:100%; height:550px;"></iframe>
 							</div>
 						</div>
 					</div>
 				</div>
-                </div>
-                <br>
+				<br>
 
-                <h2 class="display-5"><b>Palco</b></h2>
+                <h2 class="display-5 m-2 p-2"><b>Palco</b></h2>
 				<hr class="my-4 bg-light">
-					<div class="card">
-						<div class="card-body">
+					<div style="width:100%; height:600px">
+						<div>
 							<h5 class="card-title"></h5>
-								<iframe class="embed-responsive-item"
+								<iframe class="embed-responsive embed-responsive-1by1"
 										src="https://obs.ninja/?director=Blouco_{{ trio }}"
 									style="border:5; width:100%; height:600px;"></iframe>
 							</div>
 						</div>
 					</div>
                 </div>
+                </div>
+
 
 
 				{% endblock %}
