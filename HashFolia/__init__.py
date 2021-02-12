@@ -126,11 +126,14 @@ def hash_imagem(seed):
 
 @app.route('/hash/<seed>')
 def hash_completo(seed):
+    pag_titulo = 'HashFolia!'
+    pag_descricao = seed
+    pag_imagem = url_for('hash_imagem', seed=seed)
     seed = clean(seed)
     blouco_ = Blouco(seed)
     frases = [''.join(p[0]) for p in blouco_.hashfolia.frases]
     taro = blouco_.hashfolia.taro
-    return render_template('hashfolia.html', seed=seed, frases=frases, taro=taro, blouco=blouco_, reseed=md5(seed.encode('utf-8')).hexdigest())
+    return render_template('hashfolia.html', blouco=blouco_, reseed=md5(seed.encode('utf-8')).hexdigest(), **locals())
 
 if __name__ == "__main__":
     app.run()
