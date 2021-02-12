@@ -4,7 +4,7 @@ import re
 
 from hashlib import md5
 
-from flask import Flask, request, url_for
+from flask import Flask, request, url_for, redirect
 from flask import render_template, send_file
 
 try:
@@ -113,7 +113,25 @@ def incautas():
 
 @app.route('/')
 def index():
-    return 'Uso: /hash/TEXTO-DA-SEMENTE. Exemplo: <a href="/hash/volooptaz">/volooptaz</a>'
+    seed = 'Segue o Blouco!!!'
+    pag_titulo = 'Blouco'
+    pag_descricao = 'Abram alas ou misturem-se no Bonde, que o Blouco vai passar! 💣 Dom, 14 de fev, pelas ruas da Web'
+    pag_imagem = url_for('static', filename='logo.png')
+    return render_template('home.html', **locals())
+
+@app.route('/hash/')
+def hashfolia_index():
+    seed = 'HashFolia'
+    pag_titulo = 'HashFolia!'
+    pag_descricao = 'Início'
+    pag_imagem = url_for('hash_imagem', seed=seed)
+    if "semente" in request.args:
+        semente = clean(request.args["semente"])
+        return redirect("https://ruas.bloucos.art/hash/" + semente, code=302)
+
+    return render_template('hashfolia-index.html', **locals())
+@app.route('/')
+
 
 @app.route('/hash/<seed>.png')
 def hash_imagem(seed):

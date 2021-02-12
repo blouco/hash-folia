@@ -1,0 +1,24 @@
+{% extends 'esqueleto.html' %}
+{% block conteudo %}
+	<!-- Cabeçalho -->
+	<div class="container-fluid">
+		<div class="jumbotron jumbotron-fluid m-5 p-5 bg-transparent text-white">
+			<div class="container-fluid">
+				<h1 class="display 4" style="text-align: center">HashFolia! - {{ seed }} (<a
+						href="{{ url_for('hash_completo', seed=reseed) }}">🔀</a>)</h1>
+				<!-- 
+              <p class="lead">Breve descrição sobre o que é a página.</p>
+              -->
+			</div>
+		</div>
+	</div>
+
+
+		<div class="container-fluid">
+			<form action="/hash/" method="GET">
+				  <input type="text" id="semente" name="semente">
+				   <input type="submit" value="Hash!">
+			</form>
+		</div>
+	</div>
+{% endblock %}
