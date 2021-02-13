@@ -124,7 +124,7 @@ def hashfolia_index():
     seed = 'HashFolia'
     pag_titulo = 'HashFolia!'
     pag_descricao = 'O HashFolia transforma um texto-semente em um Estandarte, sendo usado para o início para um Blouco e também para sua movimentação.'
-    pag_imagem = url_for('hash_imagem', seed=seed)
+    pag_imagem = url_for('static', filename='hashfolia_estandarte.png')
     if "semente" in request.args:
         semente = clean(request.args["semente"])
         return redirect("https://ruas.bloucos.art/hash/" + semente, code=302)
