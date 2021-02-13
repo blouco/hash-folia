@@ -10,11 +10,6 @@ import json
 from PIL import Image
 
 try:
-    from .dadoware import frases_dado
-except:
-    from HashFolia.dadoware import frases_dado
-
-try:
     from .logogram import logogram
 except:
     from logogram import logogram
@@ -23,13 +18,14 @@ try:
 except:
     from deck import deck
 
-FRASES_PADROES = ((3, 3), (3, 3), (3, 3), (3, 3), (3, 3), (3, 3), (3, 3))
-
 from flask import Flask
+
+FRASES_PADROES = ((3, 3), (3, 3), (3, 3), (3, 3), (3, 3), (3, 3), (3, 3))
 
 app = Flask(__name__)
 
 BUILD_DIR = os.path.join(app.root_path, '_build/')
+WORDLIST = os.path.join(app.root_path, 'palavras.txt')
 
 class HashFolia():
     def __init__(self, consulta):
@@ -83,18 +79,26 @@ class HashFolia():
 
 
     def _get_frases(self):
-        filename = os.path.join(BUILD_DIR, self.seed + '-frases.json')
-        has_file = False
-        if os.path.isfile(filename):
-            with open(filename) as json_file:
-                frases = json.load(json_file)
-        else:
-            random.seed(self.seed)
-            frases = frases_dado(FRASES_PADROES)
-            with open(filename, 'w') as json_file:
-                json.dump(frases, json_file)
 
-        return frases
+        def expandir_padroes(padroes, palavras):
+            if type(padroes) in (tuple, list):
+                return [expandir_padroes(p, palavras) for p in padroes]
+            return [random.choice(palavras).capitalize() for i in range(padroes)]
+
+        with open(WORDLIST) as wordlist_file:
+            palavras = [w for w in wordlist_file.read().split('\n') if w]
+            filename = os.path.join(BUILD_DIR, self.seed + '-frases.json')
+            has_file = False
+            if os.path.isfile(filename):
+                with open(filename) as json_file:
+                    frases = json.load(json_file)
+            else:
+                random.seed(self.seed)
+                frases = expandir_padroes(FRASES_PADROES, palavras)
+                with open(filename, 'w') as json_file:
+                    json.dump(frases, json_file)
+
+            return frases
 
 class Divindade():
     def __init__(self):
