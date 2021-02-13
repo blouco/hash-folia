@@ -116,7 +116,7 @@ def index():
     seed = 'Segue o Blouco!!!'
     pag_titulo = 'Blouco'
     pag_descricao = 'Abram alas ou misturem-se no Bonde, que o Blouco vai passar! 💣 Dom, 14 de fev, pelas ruas da Web'
-    pag_imagem = url_for('static', filename='logo.png')
+    pag_imagem = url_for('static', filename='pix/qrgaragem_logo.png')
     return render_template('home.html', **locals())
 
 @app.route('/hash/')
