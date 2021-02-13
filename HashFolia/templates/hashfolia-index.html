@@ -1,5 +1,6 @@
 {% extends 'esqueleto.html' %}
 {% block conteudo %}
+
 	<!-- Cabeçalho -->
 	<div class="container-fluid">
 		<div class="jumbotron jumbotron-fluid m-5 p-5 bg-transparent text-white">
@@ -20,17 +21,17 @@
 				<img width="90%" class="image-responsive" alt="Imagem dos elementos da construção do Estandarte do HashFolia" src="/static/hashfolia_estandarte.png" />
 			</p>
 
-			<p>Este projeto está sendo desenvolvido em um <a href="https://github.com/blouco/hash-folia">repositório Github</a>. Veja nossa documentação no <a href="https://open.bloucos.art/pt_BR/latest/hash-folia.html">OpenBlouco</a>.</p>
+			<p class="badge badge-dark">Este projeto está sendo desenvolvido em um <a href="https://github.com/blouco/hash-folia">repositório Github</a>. Veja nossa documentação no <a href="https://open.bloucos.art/pt_BR/latest/hash-folia.html">OpenBlouco</a>.</p>
 		</div>
 
         <div class="col-sm-4">
 			<form action="/hash/" method="GET">
 			  <div class="form-group">
-				<label for="semente">Semente</label>
+				<label for="semente"><h4>Semente</h4></label>
 				<input type="text" class="form-control" id="semente" aria-describedby="sementeHelp" placeholder="SegueOBlouco" name="semente">
-				<small id="sementeHelp" class="form-text text-muted">Esta semente será usada para gerar o Estandarte</small>
+				<small id="sementeHelp" class="form-text text-light">Esta semente será usada para gerar o Estandarte.</small>
 			  </div>
-			  <input type="submit" class="btn btn-primary" value="Abre alas">
+			  <input type="submit" class="btn btn-dark" value="Abre alas">
 			</form>
 		</div>
     </div>
