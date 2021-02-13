@@ -113,9 +113,9 @@ def incautas():
 
 @app.route('/')
 def index():
-    seed = 'Segue o Blouco!!!'
-    pag_titulo = 'Blouco'
-    pag_descricao = 'Abram alas ou misturem-se no Bonde, que o Blouco vai passar! 💣 Dom, 14 de fev, pelas ruas da Web'
+    seed = 'Bota no meu Pix!'
+    pag_titulo = 'Ruas'
+    pag_descricao = 'Abram alas ou misturem-se no Bonde, que o Blouco vai passar! 💣 Domingo de Carnaval, pelas ruas da Web. Bota no Pix! Doe para a Garagem das Ambulantes!'
     pag_imagem = url_for('static', filename='pix/qr_avatares.gif')
     return render_template('home.html', **locals())
 
