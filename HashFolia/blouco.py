@@ -20,7 +20,7 @@ except:
 
 from flask import Flask
 
-FRASES_PADROES = ((3, 3), (3, 3), (3, 3), (3, 3), (3, 3), (3, 3), (3, 3))
+FRASES_PADROES = ((3, 3), (3, 3), (3, 3), (3, 3), (3, 3))
 
 app = Flask(__name__)
 
