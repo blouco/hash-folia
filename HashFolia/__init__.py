@@ -27,7 +27,7 @@ def porta_estandarte():
     estandarte = request.args.get('estandarte')
     bonde = request.args.get('bonde')
 
-    seed = '{estandarte}{bonde}'.format(**locals())
+    seed = request.args.get('seed')
     pag_titulo = 'Página da Porta-estandarte!'
     pag_descricao = seed
     pag_imagem = url_for('static', filename='avatares/porta_estandarte.png')
@@ -40,7 +40,7 @@ def puxadoras():
     bonde = request.args.get('bonde')
     papo = request.args.get('papo')
 
-    seed = '{estandarte}{bonde}{papo}'.format(**locals())
+    seed = request.args.get('seed')
     pag_titulo = 'Página das Puxadoras!'
     pag_descricao = seed
     pag_imagem = url_for('static', filename='avatares/puxadoras.png')
@@ -54,7 +54,7 @@ def mixers():
     papo = request.args.get('papo')
     trio = request.args.get('trio')
 
-    seed = '{papo}{trio}{bonde}{estandarte}'.format(**locals())
+    seed = request.args.get('seed')
     pag_titulo = 'Página das Mixers!'
     pag_descricao = seed
     pag_imagem = url_for('static', filename='avatares/mixers.png')
@@ -68,7 +68,7 @@ def artistas():
     papo = request.args.get('papo')
     trio = request.args.get('trio')
 
-    seed = '{estandarte}{bonde}{trio}'.format(**locals())
+    seed = request.args.get('seed')
     pag_titulo = 'Página das Artistas!'
     pag_descricao = seed
     pag_imagem = url_for('static', filename='avatares/artistas.png')
@@ -80,7 +80,7 @@ def passistas():
     estandarte = request.args.get('estandarte')
     bonde = request.args.get('bonde')
 
-    seed = '{estandarte}{bonde}'.format(**locals())
+    seed = request.args.get('seed')
     pag_titulo = 'Página das Passistas!'
     pag_descricao = seed
     pag_imagem = url_for('static', filename='avatares/passistas.png')
@@ -92,7 +92,7 @@ def cordoes():
     papo = request.args.get('papo')
     bonde = request.args.get('bonde')
 
-    seed = '{bonde}{papo}'.format(**locals())
+    seed = request.args.get('seed')
     pag_titulo = 'Página das Cordões!'
     pag_descricao = seed
     pag_imagem = url_for('static', filename='avatares/cordoes.png')
