@@ -14,11 +14,28 @@
 	</div>
 
 
-		<div class="container-fluid">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+			<p>O <strong>HashFolia</strong> transforma um texto-semente em um Estandarte, que serve de início para um Blouco e também proporciona sua movimentação através das ruas/ambientes conforme a Porta-estandarte e as Puxadoras o conduzem.</p>
+
+			<p class="thumbnail text-center">
+				<img width="90%" class="image-responsive" alt="Imagem dos elementos da construção do Estandarte do HashFolia" src="/static/hashfolia_estandarte.png" />
+			</p>
+
+			<p>Este projeto está sendo desenvolvido em um <a href="https://github.com/blouco/hash-folia">repositório Github</a>. Veja nossa documentação no <a href="https://open.bloucos.art/pt_BR/latest/hash-folia.html">OpenBlouco</a>.</p>
+		</div>
+
+        <div class="col-sm-4">
 			<form action="/hash/" method="GET">
-				  <input type="text" id="semente" name="semente">
-				   <input type="submit" value="Hash!">
+			  <div class="form-group">
+				<label for="semente">Semente</label>
+				<input type="text" class="form-control" id="semente" aria-describedby="sementeHelp" placeholder="SegueOBlouco" name="semente">
+				<small id="sementeHelp" class="form-text text-muted">Esta semente será usada para gerar o Estandarte</small>
+			  </div>
+			  <input type="submit" class="btn btn-primary" value="Abre alas">
 			</form>
 		</div>
-	</div>
+    </div>
+</div>
 {% endblock %}
