@@ -144,10 +144,10 @@ def hash_imagem(seed):
 
 @app.route('/hash/<seed>')
 def hash_completo(seed):
+    seed = clean(seed)
     pag_titulo = 'HashFolia!'
     pag_descricao = seed
     pag_imagem = url_for('hash_imagem', seed=seed)
-    seed = clean(seed)
     blouco_ = Blouco(seed)
     frases = [''.join(p[0]) for p in blouco_.hashfolia.frases]
     taro = blouco_.hashfolia.taro
