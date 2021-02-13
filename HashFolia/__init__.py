@@ -5,7 +5,7 @@ import re
 from hashlib import md5
 
 from flask import Flask, request, url_for, redirect
-from flask import render_template, send_file
+from flask import render_template, send_file, jsonify
 
 try:
     from .blouco import Blouco
@@ -152,6 +152,31 @@ def hash_completo(seed):
     frases = [''.join(p[0]) for p in blouco_.hashfolia.frases]
     taro = blouco_.hashfolia.taro
     return render_template('hashfolia.html', blouco=blouco_, reseed=md5(seed.encode('utf-8')).hexdigest(), **locals())
+
+@app.route('/hash/<seed>.json')
+def hash_json(seed):
+    pag_titulo = 'HashFolia!'
+    pag_descricao = seed
+    pag_imagem = request.url_root[:-1] + url_for('hash_imagem', seed=seed)
+    seed = clean(seed)
+    blouco_ = Blouco(seed)
+    frases = [''.join(p[0]) for p in blouco_.hashfolia.frases]
+    taro = [request.url_root + i['img'] for i in blouco_.hashfolia.taro]
+    return jsonify({
+        'titulo': pag_descricao,
+        'imagem': pag_imagem,
+        'taro': taro,
+        'frases': frases,
+        'pags': {k: (request.url_root + path) for k, path in {
+            'incautas': blouco_.incautas,
+            'cordoes': blouco_.cordoes,
+            'passistas': blouco_.passistas,
+            'artistas': blouco_.artistas,
+            'mixers': blouco_.mixers,
+            'puxadoras': blouco_.puxadoras,
+            'porta_estandarte': blouco_.porta_estandarte,
+        }.items()}
+    })
 
 if __name__ == "__main__":
     app.run()
