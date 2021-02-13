@@ -116,31 +116,31 @@ class Blouco(Divindade):
 
     @property
     def porta_estandarte(self):
-        return 'porta_estandarte/?bonde={bonde.codigo}&estandarte={estandarte.codigo}'.format(**vars(self))
+        return 'porta_estandarte/?seed={rua.codigo}&bonde={bonde.codigo}&estandarte={estandarte.codigo}'.format(**vars(self))
 
     @property
     def puxadoras(self):
-        return 'puxadoras/?bonde={bonde.codigo}&estandarte={estandarte.codigo}&papo={papo.codigo}'.format(**vars(self))
+        return 'puxadoras/?seed={rua.codigo}&bonde={bonde.codigo}&estandarte={estandarte.codigo}&papo={papo.codigo}'.format(**vars(self))
 
     @property
     def artistas(self):
-        return 'artistas/?bonde={bonde.codigo}&estandarte={estandarte.codigo}&trio={trio.codigo}'.format(**vars(self))
+        return 'artistas/?seed={rua.codigo}&bonde={bonde.codigo}&estandarte={estandarte.codigo}&trio={trio.codigo}'.format(**vars(self))
 
     @property
     def mixers(self):
-        return 'mixers/?bonde={bonde.codigo}&estandarte={estandarte.codigo}&papo={papo.codigo}&trio={trio.codigo}'.format(**vars(self))
+        return 'mixers/?seed={rua.codigo}&bonde={bonde.codigo}&estandarte={estandarte.codigo}&papo={papo.codigo}&trio={trio.codigo}'.format(**vars(self))
 
     @property
     def passistas(self):
-        return 'passistas/?estandarte={estandarte.codigo}&bonde={bonde.codigo}'.format(**vars(self))
+        return 'passistas/?seed={rua.codigo}&estandarte={estandarte.codigo}&bonde={bonde.codigo}'.format(**vars(self))
 
     @property
     def cordoes(self):
-        return 'cordoes/?bonde={bonde.codigo}&papo={papo.codigo}'.format(**vars(self))
+        return 'cordoes/?seed={rua.codigo}&bonde={bonde.codigo}&papo={papo.codigo}'.format(**vars(self))
 
     @property
     def incautas(self):
-        return 'incautas/?papo={papo.codigo}&transmissao='.format(**vars(self))
+        return 'incautas/?seed={rua.codigo}&papo={papo.codigo}&twitch=&youtube='.format(**vars(self))
 
 class Elemento():
     def __init__(self, blouco, frases):

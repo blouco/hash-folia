@@ -103,8 +103,10 @@ def cordoes():
 def incautas():
     papo = request.args.get('papo')
     transmissao = request.args.get('transmissao')
+    youtube = request.args.get('youtube')
+    twitch = request.args.get('twitch')
 
-    seed = '{transmissao}{papo}'.format(**locals())
+    seed = request.args.get('seed')
     pag_titulo = 'Página das Incautas!'
     pag_descricao = seed
     pag_imagem = url_for('static', filename='avatares/incautas.png')
@@ -113,10 +115,10 @@ def incautas():
 
 @app.route('/')
 def index():
-    seed = 'Bota no meu Pix!'
-    pag_titulo = 'Ruas'
-    pag_descricao = 'Abram alas ou misturem-se no Bonde, que o Blouco vai passar! 💣 Domingo de Carnaval, pelas ruas da Web. Bota no Pix! Doe para a Garagem das Ambulantes!'
-    pag_imagem = url_for('static', filename='pix/qr_avatares.gif')
+    seed = 'Anunciação e Rechamada'
+    pag_titulo = 'Segue o Blouco!'
+    pag_descricao = 'Abram alas ou misturem-se no Bonde, que o Blouco vai passar! 💣'
+    pag_imagem = url_for('hash_imagem', seed=seed)
     return render_template('home.html', **locals())
 
 @app.route('/hash/')

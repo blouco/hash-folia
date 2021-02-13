@@ -2,20 +2,19 @@
 {% block conteudo %}
 
 <div class="container-fluid">
-	{% if seed %}
 	<div class="row topo">
 
 		<!-- Banner principal-->
+		{% if seed %}
 		<div class="container-fluid">
 			<div class="jumbotron jumbotron-fluid bg-transparent text-white">
 				<div class="container-fluid  text-center">
 					<img style="width: 300px" src="{{ pag_imagem }}" />
-					<p>Bota no meu Pix!</p>
-					<p>Dá um dinheiro aí para a <a href="https://www.instagram.com/p/CLOQMkaJSWW/">Garagem das Ambulantes!</a></p>
-					{% endif %}
+					<p>{{ seed }}</p>
 				</div>
 			</div>
 		</div>
+		{% endif %}
 
 		<div class="container-fluid">
 			<div class="jumbotron jumbotron-fluid  bg-dark text-white">
