@@ -103,9 +103,10 @@ def cordoes():
 @app.route('/incautas/')
 def incautas():
     papo = clean(request.args.get('papo'))
-    transmissao = clean(request.args.get('transmissao'))
-    youtube = clean(request.args.get('youtube'))
-    twitch = clean(request.args.get('twitch'))
+    if requests.args.get('youtube'):
+        youtube = clean(request.args.get('youtube'))
+    if requests.args.get('twitch'):
+        twitch = clean(request.args.get('twitch'))
 
     rua = clean(request.args.get('rua'))
     pag_titulo = 'Página das Incautas!'
