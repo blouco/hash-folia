@@ -103,9 +103,9 @@ def cordoes():
 @app.route('/incautas/')
 def incautas():
     papo = clean(request.args.get('papo'))
-    if requests.args.get('youtube'):
+    if request.args.get('youtube'):
         youtube = clean(request.args.get('youtube'))
-    if requests.args.get('twitch'):
+    if request.args.get('twitch'):
         twitch = clean(request.args.get('twitch'))
 
     rua = clean(request.args.get('rua'))
