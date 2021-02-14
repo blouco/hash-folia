@@ -31,6 +31,10 @@ def porta_estandarte():
     pag_titulo = 'Página da Porta-estandarte!'
     pag_descricao = rua
     pag_imagem = url_for('static', filename='avatares/porta_estandarte.png')
+    if request.args.get('youtube'):
+        youtube = clean(request.args.get('youtube'))
+    if request.args.get('twitch'):
+        twitch = clean(request.args.get('twitch'))
 
     return render_template('porta_estandarte.html', **locals())
 
@@ -44,6 +48,10 @@ def puxadoras():
     pag_titulo = 'Página das Puxadoras!'
     pag_descricao = rua
     pag_imagem = url_for('static', filename='avatares/puxadoras.png')
+    if request.args.get('youtube'):
+        youtube = clean(request.args.get('youtube'))
+    if request.args.get('twitch'):
+        twitch = clean(request.args.get('twitch'))
 
     return render_template('puxadoras.html', **locals())
 
@@ -53,6 +61,10 @@ def mixers():
     bonde = clean(request.args.get('bonde'))
     papo = clean(request.args.get('papo'))
     trio = clean(request.args.get('trio'))
+    if request.args.get('youtube'):
+        youtube = clean(request.args.get('youtube'))
+    if request.args.get('twitch'):
+        twitch = clean(request.args.get('twitch'))
 
     rua = clean(request.args.get('rua'))
     pag_titulo = 'Página das Mixers!'
@@ -67,6 +79,10 @@ def artistas():
     bonde = clean(request.args.get('bonde'))
     papo = clean(request.args.get('papo'))
     trio = clean(request.args.get('trio'))
+    if request.args.get('youtube'):
+        youtube = clean(request.args.get('youtube'))
+    if request.args.get('twitch'):
+        twitch = clean(request.args.get('twitch'))
 
     rua = clean(request.args.get('rua'))
     pag_titulo = 'Página das Artistas!'
@@ -79,6 +95,10 @@ def artistas():
 def passistas():
     estandarte = clean(request.args.get('estandarte'))
     bonde = clean(request.args.get('bonde'))
+    if request.args.get('youtube'):
+        youtube = clean(request.args.get('youtube'))
+    if request.args.get('twitch'):
+        twitch = clean(request.args.get('twitch'))
 
     rua = clean(request.args.get('rua'))
     pag_titulo = 'Página das Passistas!'
@@ -90,6 +110,10 @@ def passistas():
 @app.route('/cordoes/')
 def cordoes():
     papo = clean(request.args.get('papo'))
+    if request.args.get('youtube'):
+        youtube = clean(request.args.get('youtube'))
+    if request.args.get('twitch'):
+        twitch = clean(request.args.get('twitch'))
     bonde = clean(request.args.get('bonde'))
     estandarte = clean(request.args.get('estandarte'))
 
