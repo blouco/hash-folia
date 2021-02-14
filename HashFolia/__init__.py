@@ -16,7 +16,7 @@ app = Flask(__name__)
 
 
 def clean(seed):
-    return re.sub('[^A-Za-z0-9_]', '', seed)
+    return re.sub('[^-A-Za-z0-9_]', '', seed)
 
 @app.route('/blouco/')
 def blouco():
@@ -24,10 +24,9 @@ def blouco():
 
 @app.route('/porta_estandarte/')
 def porta_estandarte():
-    estandarte = request.args.get('estandarte')
-    bonde = request.args.get('bonde')
-
-    rua = request.args.get('rua')
+    estandarte = clean(request.args.get('estandarte'))
+    bonde = clean(request.args.get('bonde'))
+    rua = clean(request.args.get('rua'))
     pag_titulo = 'Página da Porta-estandarte!'
     pag_descricao = rua
     pag_imagem = url_for('static', filename='avatares/porta_estandarte.png')
@@ -36,11 +35,11 @@ def porta_estandarte():
 
 @app.route('/puxadoras/')
 def puxadoras():
-    estandarte = request.args.get('estandarte')
-    bonde = request.args.get('bonde')
-    papo = request.args.get('papo')
+    estandarte = clean(request.args.get('estandarte'))
+    bonde = clean(request.args.get('bonde'))
+    papo = clean(request.args.get('papo'))
 
-    rua = request.args.get('rua')
+    rua = clean(request.args.get('rua'))
     pag_titulo = 'Página das Puxadoras!'
     pag_descricao = rua
     pag_imagem = url_for('static', filename='avatares/puxadoras.png')
@@ -49,12 +48,12 @@ def puxadoras():
 
 @app.route('/mixers/')
 def mixers():
-    estandarte = request.args.get('estandarte')
-    bonde = request.args.get('bonde')
-    papo = request.args.get('papo')
-    trio = request.args.get('trio')
+    estandarte = clean(request.args.get('estandarte'))
+    bonde = clean(request.args.get('bonde'))
+    papo = clean(request.args.get('papo'))
+    trio = clean(request.args.get('trio'))
 
-    rua = request.args.get('rua')
+    rua = clean(request.args.get('rua'))
     pag_titulo = 'Página das Mixers!'
     pag_descricao = rua
     pag_imagem = url_for('static', filename='avatares/mixers.png')
@@ -63,12 +62,12 @@ def mixers():
 
 @app.route('/artistas/')
 def artistas():
-    estandarte = request.args.get('estandarte')
-    bonde = request.args.get('bonde')
-    papo = request.args.get('papo')
-    trio = request.args.get('trio')
+    estandarte = clean(request.args.get('estandarte'))
+    bonde = clean(request.args.get('bonde'))
+    papo = clean(request.args.get('papo'))
+    trio = clean(request.args.get('trio'))
 
-    rua = request.args.get('rua')
+    rua = clean(request.args.get('rua'))
     pag_titulo = 'Página das Artistas!'
     pag_descricao = rua
     pag_imagem = url_for('static', filename='avatares/artistas.png')
@@ -77,10 +76,10 @@ def artistas():
 
 @app.route('/passistas/')
 def passistas():
-    estandarte = request.args.get('estandarte')
-    bonde = request.args.get('bonde')
+    estandarte = clean(request.args.get('estandarte'))
+    bonde = clean(request.args.get('bonde'))
 
-    rua = request.args.get('rua')
+    rua = clean(request.args.get('rua'))
     pag_titulo = 'Página das Passistas!'
     pag_descricao = rua
     pag_imagem = url_for('static', filename='avatares/passistas.png')
@@ -89,11 +88,11 @@ def passistas():
 
 @app.route('/cordoes/')
 def cordoes():
-    papo = request.args.get('papo')
-    bonde = request.args.get('bonde')
-    estandarte = request.args.get('estandarte')
+    papo = clean(request.args.get('papo'))
+    bonde = clean(request.args.get('bonde'))
+    estandarte = clean(request.args.get('estandarte'))
 
-    rua = request.args.get('rua')
+    rua = clean(request.args.get('rua'))
     pag_titulo = 'Página das Cordões!'
     pag_descricao = rua
     pag_imagem = url_for('static', filename='avatares/cordoes.png')
@@ -102,12 +101,12 @@ def cordoes():
 
 @app.route('/incautas/')
 def incautas():
-    papo = request.args.get('papo')
-    transmissao = request.args.get('transmissao')
-    youtube = request.args.get('youtube')
-    twitch = request.args.get('twitch')
+    papo = clean(request.args.get('papo'))
+    transmissao = clean(request.args.get('transmissao'))
+    youtube = clean(request.args.get('youtube'))
+    twitch = clean(request.args.get('twitch'))
 
-    rua = request.args.get('rua')
+    rua = clean(request.args.get('rua'))
     pag_titulo = 'Página das Incautas!'
     pag_descricao = rua
     pag_imagem = url_for('static', filename='avatares/incautas.png')
