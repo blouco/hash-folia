@@ -27,6 +27,7 @@ def porta_estandarte():
     estandarte = clean(request.args.get('estandarte'))
     bonde = clean(request.args.get('bonde'))
     rua = clean(request.args.get('rua'))
+    papo = clean(request.args.get('papo'))
     pag_titulo = 'Página da Porta-estandarte!'
     pag_descricao = rua
     pag_imagem = url_for('static', filename='avatares/porta_estandarte.png')
