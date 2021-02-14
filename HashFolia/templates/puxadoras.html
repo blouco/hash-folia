@@ -15,6 +15,27 @@
 		<!-- Conteúdo -->
 		<div class="container-fluid">
 			<div class="jumbotron jumbotron-fluid bg-dark text-white">
+				{% if youtube or twitch %}
+					<h2 class="display-5 m-2 p-2"><b>Transmissão</b>
+					</h2>
+					<hr class="my-4 bg-light">
+					<div class="card-body">
+						<h5 class="card-title">Veja o Blouco passar</h5>
+						<div class="youtube-embed embed-responsive embed-responsive-4by3">
+							{% if youtube %}
+								<iframe src="https://www.youtube.com/embed/{{ youtube }}" frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowfullscreen></iframe>
+							{% elif twitch %}
+								<iframe
+									src="https://player.twitch.tv/?channel={{ twitch }}&parent=ruas.bloucos.art"
+									allowfullscreen="<allowfullscreen>">
+								</iframe>
+							{% endif %}
+						</div>
+					</div>
+					<br>
+				{% endif %}
 				<h2 class="display-5 m-2 p-2"><a href="https://pad.bloucos.art/p/Blouco_{{ estandarte }}?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false"><b>Estandarte</b></a></h2>
 				<hr class="my-4 bg-light">
 				<div>
