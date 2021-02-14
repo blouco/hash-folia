@@ -10,62 +10,50 @@
 
 
 <div class="container-fluid">
-	{% if seed %}
-	<div class="row topo">
-
-		<!-- Banner principal-->
-		<div class="container-fluid">
-			<div class="jumbotron jumbotron-fluid bg-transparent text-white">
-				<div class="container-fluid  text-center">
-					<img style="width: 150px" src="{{ pag_imagem }}" />
-					<p>{{ seed }}</p>
-					{% endif %}
-				</div>
-			</div>
-		</div>
+		{% include "parts/rua.html" %}
 
 		<!-- Conteúdo -->
 		<div class="container-fluid">
 			<div class="jumbotron jumbotron-fluid  bg-dark text-white">
-				<h2 class="display-5 m-2 p-2"><b>Transmissão do Trio</b>
-				</h2>
-				<hr class="my-4 bg-light">
-				<div class="card-body">
-					<h5 class="card-title"></h5>
-					<div class="youtube-embed embed-responsive embed-responsive-4by3">
-						{% if youtube %}
-							<iframe src="https://www.youtube.com/embed/{{ youtube }}" frameborder="0"
-								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-								allowfullscreen></iframe>
-						{% elif twitch %}
-							<iframe
-								src="https://player.twitch.tv/?channel={{ twitch }}&parent=ruas.bloucos.art"
-								allowfullscreen="<allowfullscreen>">
-							</iframe>
-						{% endif %}
+				{% if youtube or twitch %}
+					<h2 class="display-5 m-2 p-2"><b>Transmissão</b>
+					</h2>
+					<hr class="my-4 bg-light">
+					<div class="card-body">
+						<h5 class="card-title">Veja o Blouco passar</h5>
+						<div class="youtube-embed embed-responsive embed-responsive-4by3">
+							{% if youtube %}
+								<iframe src="https://www.youtube.com/embed/{{ youtube }}" frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowfullscreen></iframe>
+							{% elif twitch %}
+								<iframe
+									src="https://player.twitch.tv/?channel={{ twitch }}&parent=ruas.bloucos.art"
+									allowfullscreen="<allowfullscreen>">
+								</iframe>
+							{% endif %}
+						</div>
 					</div>
-				</div>
-				<br>
+					<br>
+				{% endif %}
 
 				<h2 class="display-5 m-2 p-2"><b>Papo</b>
 				</h2>
 				<hr class="my-4 bg-light">
-				<!-- Chat -->
-				<div class="papo col-xs-7 col-md-12 embed-responsive embed-responsive-1by1" style="width:100%; height:550px">
-					<iframe class="embed-responsive-item"
-						src="https://kiwiirc.com/nextclient/chat.freenode.org/?nick=Incauta_%3F#Blouco_{{ papo }}"
-						style="width:100%; height:100%;"></iframe>
+				<div class="card-body">
+					{% set kiwiirc = "https://kiwiirc.com/nextclient/chat.freenode.org/?nick=Incauta_%3F#Blouco_" + papo + "" %}
+					<h5 class="card-title">Vem trocar idéia! Lembra do IRC? Canal #Blouco_{{ papo }} no Freenode
+						<a href="{{ kiwiirc }}">(link direto)</a>
+					</h5>
+					<!-- Chat -->
+					<div class="papo col-xs-7 col-md-12 embed-responsive embed-responsive-1by1" style="width:100%; height:550px">
+						<iframe class="embed-responsive-item"
+								src="{{ kiwiirc }}"
+							style="width:100%; height:550px"></iframe>
+					</div>
 				</div>
 
-				<h2 class="display-5 m-2 p-2"><b>Manual</b>
-				</h2>
-				<hr class="my-4 bg-light">
-				<!-- Manual -->
-				<div class="manual col-xs-7 col-md-12 embed-responsive embed-responsive-1by1" style="width:100%; height:550px">
-					<iframe class="embed-responsive-item"
-						src="https://open.bloucos.art/pt_BR/latest/divindades/incautas.html"
-						style="width:100%; height:100%;"></iframe>
-				</div>
 			</div>
 		</div>
+</div>
 {% endblock %}

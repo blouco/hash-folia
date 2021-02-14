@@ -10,8 +10,7 @@
 	<div class="container-fluid">
 		<div class="jumbotron jumbotron-fluid m-5 p-5 bg-transparent text-white">
 			<div class="container-fluid">
-				<h1 class="display 4" style="text-align: center">HashFolia! - {{ seed }} (<a
-						href="{{ url_for('hash_completo', seed=reseed) }}">🔀</a>)</h1>
+				<h1 class="display 4" style="text-align: center">HashFolia! (<a title="HashFolia(MD5({{ seed }}))" href="{{ url_for('hash_completo', seed=reseed) }}">🔀</a>)</h1>
 				<!-- 
               <p class="lead">Breve descrição sobre o que é a página.</p>
               -->
@@ -22,17 +21,19 @@
 	<!-- Estandarte -->
 	<div class="container-fluid">
 		<div class="jumbotron jumbotron-fluid m-3 p-4 bg-dark text-white">
-			<h2 class="display-5" id="gerarHash"><b>Construção do Estandarte</b></h2>
-			<p>Arranjos de Elementos/Ambientes do Blouco nas páginas das Divindades/Funções.</p>
+			<h2 class="display-5" id="gerarHash"><b>Criação do Blouco</b></h2>
 			<hr class="my-4 bg-light">
 			<div class="row estandarte">
-				<div class="col-sm text-center bg-light text-dark p-3 m-3">
-					<h3>Imagem</h3>
+				<div class="col-sm text-center bg-info text-dark p-3 m-3">
+					<h3>Avatar</h3>
+					<p class="lead">Símbolo deste Blouco</p>
 					<img width="100%" src="/hash/{{ seed }}.png" />
 				</div>
 
-				<div class="col-sm text-center bg-light text-dark p-3 m-3">
+				<div class="col-sm text-center bg-info text-dark p-3 m-3">
 					<h3>Arcanos</h3>
+					<p class="lead">Augúrios ...</p>
+					<p></p>
 					<div class="row">
 						<div class="col text-center">
 							<img width="100%" src="/{{ taro.0.img }}" />
@@ -42,16 +43,116 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-sm text-center bg-light text-dark p-3 m-3">
-					<h3>Senhas</h3>
+				<div class="col-sm text-center bg-warning text-dark p-3 m-3">
+					<h3>Salas</h3>
+					<p class="lead">Senhas-coordenadas para os Elementos. Informação sensível, não compartilhe fora do Cordão!</p>
+					<p></p>
 					<ul class="list-group">
-						{% for frase in frases %}
-						<li class="list-group-item list-group-item-dark">
-							{{ frase }}</li>
-						{% endfor %}
+						<li class="list-group-item list-group-item-danger lead">
+							➨ {{ seed }} ⮯
+						</li>
+						<li title="Estandarte" class="list-group-item list-group-item-warning text-dark">
+							{{ frases.0 }}
+						</li>
+						<li title="Bonde" class="list-group-item list-group-item-warning text-danger">
+							{{ frases.1 }}
+						</li>
+						<li title="Trio" class="list-group-item list-group-item-warning text-primary">
+							{{ frases.2 }}
+						</li>
+						<li title="Papo" class="list-group-item list-group-item-warning text-warning">
+							{{ frases.3 }}
+						</li>
+						<li title="Ruas" class="list-group-item list-group-item-warning text-success">
+							{{ frases.4 }}
+						</li>
 					</ul>
 				</div>
 			</div>
+		</div>
+
+		<!-- Elementos -->
+
+		<div class="container-fluid">
+			<div class="jumbotron jumbotron-fluid p-4 bg-dark text-white">
+				<h3>⛤ ELEMENTOS</h3>
+				<hr class="my-4 bg-light">
+				<div class="container-fluid">
+					<h4 id="estandarte">✨ ESTANDARTE</h4>
+					<p class="text-justify">
+						Um pad, documento colaborativo onde Porta-estandarte e puxadoras atualizam com informações sobre o Blouco. Disponibilizado para todes.
+					</p>
+					<div class="card-body bg-light">
+						<p>
+							{% set ether_url = "https://pad.bloucos.art/p/Blouco_" + blouco.estandarte.codigo %}
+							<a href="{{ ether_url }}">
+								Etherpad: {{ ether_url }}
+							</a>
+						</p>
+					</div>
+
+					<hr class="my-4 bg-light">
+					<h4 id="bonde">🔥 BONDE</h4>
+					<p class="text-justify">
+						Salinha de Jitsi. Para carregar de gente dançando e se
+						curtindo! Não acessível por Incautas.
+					</p>
+					<div class="card-body bg-light">
+						<p>
+							{% set jitsi_url = "https://meet.jit.si/Blouco_" + blouco.bonde.codigo %}
+							<a href="{{ jitsi_url }}">Jitsi Meet: {{ jitsi_url }}</a>
+						</p>
+					</div>
+
+					<hr class="my-4 bg-light">
+					<h4 id="trio">🌊 TRIO</h4>
+					<p class="text-justify">
+						{% set room_url = "https://obs.ninja/?room=" + blouco.trio.codigo %}
+						{% set director_url = "https://obs.ninja/?director=" + blouco.trio.codigo %}
+						Onde as Artistas e Mixers fazem a transmissão que une
+						nosso Blouco. Há:
+
+						<ul>
+						<li>o <strong>Camarim</strong>, onde
+						Artistas podem entrar para enviar câmera, microfone ou
+						transmissões do próprio computador,</li>
+						<li>e a <strong>Direção</strong>, onde uma Mixer pode
+						selecionar quais Artistas entram no Palco, sua
+						transmissão de Youtube ou Twitch que será transmitida
+						para as Ruas.</li>
+						</ul>
+					</p>
+					<div class="card-body bg-light">
+						<p>
+							<a href="{{ room_url }}">Camarim (Artista) - {{ room_url }}</a>
+						</p>
+						<p>
+							<a href="{{ director_url }}">Direção (Mixer) - {{ director_url }}</a>
+						</p>
+					</div>
+					{% set canal_geral = "#Blouco_" + blouco.papo.codigo %}
+					{% set canal_geral_cordao = "#Blouco_" + blouco.papo.codigo + "_Cordao" %}
+					{% set kiwiirc = "https://kiwiirc.com/nextclient/chat.freenode.org/?nick=Cordao_%3F#Blouco_" + blouco.papo.codigo + "_Cordao,#Blouco_" + blouco.papo.codigo + "" %}
+
+					<hr class="my-4 bg-light">
+					<h4 id="papo">💨 PAPO</h4>
+					<p class="text-justify">
+						Canal de comunicação principal entre todes. O canal geral será acessível pelas Incautas, enquanto o das Cordões será restrito, aberto pelas Puxadoras durante a preparação.
+					</p>
+					<div class="card-body bg-light">
+						<p>
+							<a href="{{ kiwiirc }}">Webchat Freenode: {{ kiwiirc }}</a>
+						</p>
+						<p class="text-monospace bg-dark">
+							# Pelo IRC <br />
+							/server chat.freenode.net<br />
+							/join #Blouco_{{ blouco.papo.codigo }}<br />
+							/join #Blouco_{{ blouco.papo.codigo }}_Cordao
+						</p>
+					</div>
+				</div>
+			</div>
+
 		</div>
 
 
@@ -59,94 +160,89 @@
 
 		<div class="container-fluid">
 			<div class="jumbotron jumbotron-fluid p-4 bg-dark text-white">
+				<h3>🌎 RUAS</h3> <p>Após a Mixer iniciar a transmissão,
+				acrescente <strong><span class="text-monospace text-bold">&youtube=ID</span></strong> ou <strong><span class="text-monospace text-bold">&twitch=CANAL</span></strong> em cada uma das URLs para ativá-la.
+				<hr class="my-4 bg-light">
 				<div class="container-fluid">
-					<h4 id="portaEstandarte">♃ PORTA ESTANDARTE</h4>
-					<p><a href="https://open.bloucos.art/pt_BR/latest/divindades/portaestandarte.html">Manual - OpenBlouco</a></p>
+					<h4 id="portaEstandarte">VISÃO DA PORTA ESTANDARTE ♃</h4>
 					<p class="text-justify">
-						Espaço de Paragrafo.
+						Estandarte (Pad) + Bonde (Jitsi) + Papo (IRC - Cordão)
 					</p>
 					<div class="card-body bg-light">
 						<p>
-							<a href="{{ request.url_root }}{{ blouco.porta_estandarte }}">Página: {{ request.url_root }}{{
-								blouco.porta_estandarte|truncate(49) }}</a>
+							<a href="{{ request.url_root }}{{ blouco.porta_estandarte }}">{{ request.url_root }}{{
+								blouco.porta_estandarte }}</a>
 						</p>
 					</div>
 
 					<hr class="my-4 bg-light">
-					<h4 id="puxadoras">♂ PUXADORAS</h4>
-					<p><a href="https://open.bloucos.art/pt_BR/latest/divindades/puxadoras.html">Manual - OpenBlouco</a></p>
+					<h4 id="puxadoras">VISÃO DAS PUXADORAS ♂</h4>
 					<p class="text-justify">
-						Espaço de Paragrafo.
+						Estandarte (Pad) + Bonde (Jitsi) + Papo (IRC - Cordão)
 					</p>
 					<div class="card-body bg-light">
 						<p>
-							<a href="{{ request.url_root }}{{ blouco.puxadoras }}">Página: {{ request.url_root }}{{
-								blouco.puxadoras|truncate(49) }}</a>
+							<a href="{{ request.url_root }}{{ blouco.puxadoras }}">{{ request.url_root }}{{
+								blouco.puxadoras }}</a>
 						</p>
 					</div>
 
 					<hr class="my-4 bg-light">
-					<h4 id="mixers">☼ MIXERS</h4>
-					<p><a href="https://open.bloucos.art/pt_BR/latest/divindades/mixers.html">Manual - OpenBlouco</a></p>
+					<h4 id="mixers">VISÃO DAS MIXERS ☼</h4>
 					<p class="text-justify">
-						Espaço de Paragrafo.
+						Estandarte (Pad) + Bonde (Jitsi) + Trio (Direção OBSninja) + Papo (IRC - Cordão)
 					</p>
 					<div class="card-body bg-light">
 						<p>
-							<a href="{{ request.url_root }}{{ blouco.mixers }}">Página: {{ request.url_root }}{{ blouco.mixers
-							|truncate(49)	}}</a>
+							<a href="{{ request.url_root }}{{ blouco.mixers }}">{{ request.url_root }}{{ blouco.mixers }}</a>
 						</p>
 					</div>
 
 					<hr class="my-4 bg-light">
-					<h4 id="artistas">☉ ARTISTAS</h4>
-					<p><a href="https://open.bloucos.art/pt_BR/latest/divindades/artistas.html">Manual - OpenBlouco</a></p>
+					<h4 id="artistas">VISÃO DAS ARTISTAS ☉</h4>
 					<p class="text-justify">
-						Espaço de Paragrafo.
+						Estandarte (Pad) + Trio (Camarim OBSninja) + Papo (IRC - Cordão)
 					</p>
 					<div class="card-body bg-light">
 						<p>
-							<a href="{{ request.url_root }}{{ blouco.artistas }}">Página: {{ request.url_root }}{{
-								blouco.artistas|truncate(49) }}</a>
+							<a href="{{ request.url_root }}{{ blouco.artistas }}">{{ request.url_root }}{{
+								blouco.artistas }}</a>
 						</p>
 					</div>
 
 					<hr class="my-4 bg-light">
-					<h4 id="passistas">♀ PASSISTAS</h4>
-					<p><a href="https://open.bloucos.art/pt_BR/latest/divindades/passistas.html">Manual - OpenBlouco</a></p>
+					<h4 id="passistas">VISÃO DAS PASSISTAS ♀</h4>
 					<p class="text-justify">
-						Espaço de Paragrafo.
+						Estandarte (Pad) + Bonde (Jitsi)
 					</p>
 					<div class="card-body bg-light">
 						<p>
-							<a href="{{ request.url_root }}{{ blouco.passistas }}">Página: {{ request.url_root }}{{
-								blouco.passistas|truncate(49) }}</a>
+							<a href="{{ request.url_root }}{{ blouco.passistas }}">{{ request.url_root }}{{
+								blouco.passistas }}</a>
 						</p>
 					</div>
 					
 					<hr class="my-4 bg-light">
-					<h4 id="cordoes">☿ CORDÕES</h4>
-					<p><a href="https://open.bloucos.art/pt_BR/latest/divindades/cordoes.html">Manual - OpenBlouco</a></p>
+					<h4 id="cordoes">VISÃO DAS CORDÕES ☿</h4>
 					<p class="text-justify">
-						Espaço de Paragrafo.
+						Estandarte (Pad) + Papo (IRC - Geral, Cordão)
 					</p>
 					<div class="card-body bg-light">
 						<p>
-							<a href="{{ request.url_root }}{{ blouco.cordoes }}">Página: {{ request.url_root }}{{ blouco.cordoes
-							|truncate(49)	}}</a>
+							<a href="{{ request.url_root }}{{ blouco.cordoes }}">{{ request.url_root }}{{ blouco.cordoes
+								}}</a>
 						</p>
 					</div>
 
 					<hr class="my-4 bg-light"> 
-					<h4 id="incautas">☽ INCAUTAS</h4>
-					<p><a href="https://open.bloucos.art/pt_BR/latest/divindades/incautas.html">Manual - OpenBlouco</a></p>
+					<h4 id="incautas">VISÃO DAS INCAUTAS ☽</h4>
 					<p class="text-justify">
-						Espaço de Paragrafo.
+						Papo (IRC - Geral)
 					</p>
 					<div class="card-body bg-light">
 						<p>
-							<a href="{{ request.url_root }}{{ blouco.incautas }}">Página: {{ request.url_root }}{{
-								blouco.incautas|truncate(49) }}</a>
+							<a href="{{ request.url_root }}{{ blouco.incautas }}">{{ request.url_root }}{{
+								blouco.incautas }}</a>
 						</p>
 					</div>
 

@@ -11,36 +11,29 @@
 <!-- Conteúdo -->
 
 <div class="container-fluid">
-	{% if seed %}
-	<div class="row topo">
+		{% include "parts/rua.html" %}
 
-		<!-- Banner principal-->
-		<div class="container-fluid">
-			<div class="jumbotron jumbotron-fluid m-5 p-5 bg-transparent text-white">
-				<div class="container-fluid  text-center">
-					<img style="width: 150px" src="{{ pag_imagem }}" />
-					<p>{{ seed }}</p>
-					{% endif %}
-				</div>
-			</div>
-		</div>
-
-		<!-- Estandarte -->
 		<div class="container-fluid">
 			<div class="jumbotron jumbotron-fluid bg-dark text-white">
 				<h2 class="display-5 m-2 p-2"><b>Estandarte</b></h2>
 				<hr class="my-4 bg-light">
 				<div>
+					{% set etherpad  = "https://pad.bloucos.art/p/Blouco_" + estandarte + "?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false" %}
 					<div class="card-header bg-dark">
-						<h4>Fluxo da Atividade</h4>
+						<h4>
+							Mural do Blouco!
+							<a href="{{ etherpad }}">(link direto)</a>
+						</h4>
 					</div>
 				</div>
 				<div class="card-body">
+
 					<div class="etherpad-embed">
 						<iframe name="embed_readwrite"
-							src="https://pad.bloucos.art/p/Blouco_{{ estandarte }}?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false"
+								src="{{ etherpad }}"
 							width="100%" height="550px" frameborder="0"></iframe>
 					</div>
+
 				</div>
 				<h2 class="display-5 m-2 p-2"><b><a class="text-light"
 							href="https://meet.jit.si/Blouco_{{bonde}}">Bonde</a></b></h2>

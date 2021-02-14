@@ -11,19 +11,7 @@
 
 
 <div class="container-fluid">
-	{% if seed %}
-	<div class="row topo">
-
-		<!-- Banner principal-->
-		<div class="container-fluid">
-			<div class="jumbotron jumbotron-fluid bg-transparent text-white">
-				<div class="container-fluid  text-center">
-					<img style="width: 150px" src="{{ pag_imagem }}" />
-					<p>{{ seed }}</p>
-					{% endif %}
-				</div>
-			</div>
-		</div>
+		{% include "parts/rua.html" %}
 
 		<!-- Conteúdo -->
 		<div class="container-fluid">
@@ -31,73 +19,73 @@
                 <h2 class="display-5 m-2 p-2"><b>Estandarte</b></h2>
 				<hr class="my-4 bg-light">
 				<div>
+					{% set etherpad  = "https://pad.bloucos.art/p/Blouco_" + estandarte + "?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false" %}
 					<div class="card-header bg-dark">
-						<h4>Fluxo da Atividade</h4>
+						<h4>
+							Mural do Blouco!
+							<a href="{{ etherpad }}">(link direto)</a>
+						</h4>
 					</div>
 				</div>
 				<div class="card-body">
 
 					<div class="etherpad-embed">
 						<iframe name="embed_readwrite"
-							src="https://pad.bloucos.art/p/Blouco_{{ estandarte }}?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false"
+								src="{{ etherpad }}"
 							width="100%" height="550px" frameborder="0"></iframe>
 					</div>
 
 				</div>
 
-                <h2 class="display-5 m-2 p-2"><b>Bonde</b></h2>
-				<hr class="my-4 bg-light">
-				<div id="bonde" class="embed-responsive embed-responsive-1by1" style="width:100%; height:550px">
-					<script src="https://meet.jit.si/external_api.js"></script>
-					<script>
-						var domain = "meet.jit.si";
-						var options = {
-							roomName: "Blouco_{{bonde}}",
-							width: "100%",
-							height: "100%",
-							parentNode: document.querySelector('#bonde'),
-							configOverwrite: {},
-							interfaceConfigOverwrite: {}
-						}
-						var api = new JitsiMeetExternalAPI(domain, options);
-					</script>
-				</div>
-
-                <h2 class="display-5 m-2 p-2"><b>Papo</b></h2>
-				<hr class="my-4 bg-light">
-                <div>
-					<div style="width:100%; height:550px">
-						<div>
-							<h5 class="card-title"></h5>
-							<div>
-								<iframe class="embed-responsive embed-responsive-1by1"
-									src="https://kiwiirc.com/nextclient/chat.freenode.org/?nick=Cordao_%3F#Blouco_{{ papo }},Blouco_{{ papo }}_Cordao"
-									style="border:5; width:100%; height:550px;"></iframe>
-							</div>
-						</div>
-					</div>
-				</div>
-				<br>
-
-                <h2 class="display-5 m-2 p-2"><b>Palco</b></h2>
-				<hr class="my-4 bg-light">
-					<div style="width:100%; height:600px">
-						<div>
-							<h5 class="card-title"></h5>
-								<iframe class="embed-responsive embed-responsive-1by1"
-										src="https://obs.ninja/?director=Blouco_{{ trio }}"
-									style="border:5; width:100%; height:600px;"></iframe>
-							</div>
-						</div>
-
-				<h2 class="display-5 m-2 p-2"><b>Manual</b>
+				<h2 class="display-5 m-2 p-2"><b>Papo - Cordão</b>
 				</h2>
 				<hr class="my-4 bg-light">
+				<div class="card-body">
+					{% set kiwiirc = "https://kiwiirc.com/nextclient/chat.freenode.org/?nick=Mixer_%3F#Blouco_" + papo + "_Cordao" %}
+					<h5 class="card-title">Coordene com Puxadoras e Artistas!
+						<a href="{{ kiwiirc }}">(link direto)</a>
+					</h5>
+					<!-- Chat -->
+					<div class="papo col-xs-7 col-md-12 embed-responsive embed-responsive-1by1" style="width:100%; height:550px">
+						<iframe class="embed-responsive-item"
+								src="{{ kiwiirc }}"
+							style="width:100%; height:100%;"></iframe>
+					</div>
+				</div>
+
+				<br>
+
+				{% set obsn = "https://obs.ninja/?director=" + trio %}
+                <h2 class="display-5 m-2 p-2"><b>Direção do Trio</b></h2>
+				<hr class="my-4 bg-light">
+				<div class="card-body">
+						<h5 class="card-title">Receba contribuições de Artistas no Camarim com OBS.ninja!
+						<a href="{{ obsn }}">(link direto)</a>
+						</h5>
+						<div style="width:100%; height:600px">
+							<div>
+								<center>
+									<iframe class="embed-responsive embed-responsive-1by1"
+											src="{{ obsn }}"
+										style="margin: 0 auto; border:5; width:90%; height:600px;"></iframe>
+								</center>
+							</div>
+						</div>
+				</div>
+
+				<!-- Conserto muito ruim do overlap que está dando do OBSn -->
+				<div style="margin-top: 60px !important;">
+
+				<h2 class="clearfix display-5 m-2 p-2"><b>Manual do Trio</b></h2>
+				</div>
+				<hr class="my-4 bg-light">
 				<!-- Manual -->
-				<div class="manual col-xs-7 col-md-12 embed-responsive embed-responsive-1by1" style="width:100%; height:550px">
+					<div style="width:100%; height:600px">
+					<center>
 					<iframe class="embed-responsive-item"
-						src="https://open.bloucos.art/pt_BR/latest/divindades/mixers.html"
-						style="width:100%; height:100%;"></iframe>
+						src="https://open.bloucos.art/pt_BR/latest/elementos/trio.html"
+						style="width:90%; height:600px;"></iframe>
+					</center>
 				</div>
 					</div>
                 </div>

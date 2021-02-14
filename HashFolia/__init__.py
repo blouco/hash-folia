@@ -27,9 +27,9 @@ def porta_estandarte():
     estandarte = request.args.get('estandarte')
     bonde = request.args.get('bonde')
 
-    seed = request.args.get('seed')
+    rua = request.args.get('rua')
     pag_titulo = 'Página da Porta-estandarte!'
-    pag_descricao = seed
+    pag_descricao = rua
     pag_imagem = url_for('static', filename='avatares/porta_estandarte.png')
 
     return render_template('porta_estandarte.html', **locals())
@@ -40,9 +40,9 @@ def puxadoras():
     bonde = request.args.get('bonde')
     papo = request.args.get('papo')
 
-    seed = request.args.get('seed')
+    rua = request.args.get('rua')
     pag_titulo = 'Página das Puxadoras!'
-    pag_descricao = seed
+    pag_descricao = rua
     pag_imagem = url_for('static', filename='avatares/puxadoras.png')
 
     return render_template('puxadoras.html', **locals())
@@ -54,9 +54,9 @@ def mixers():
     papo = request.args.get('papo')
     trio = request.args.get('trio')
 
-    seed = request.args.get('seed')
+    rua = request.args.get('rua')
     pag_titulo = 'Página das Mixers!'
-    pag_descricao = seed
+    pag_descricao = rua
     pag_imagem = url_for('static', filename='avatares/mixers.png')
 
     return render_template('mixers.html', **locals())
@@ -68,9 +68,9 @@ def artistas():
     papo = request.args.get('papo')
     trio = request.args.get('trio')
 
-    seed = request.args.get('seed')
+    rua = request.args.get('rua')
     pag_titulo = 'Página das Artistas!'
-    pag_descricao = seed
+    pag_descricao = rua
     pag_imagem = url_for('static', filename='avatares/artistas.png')
 
     return render_template('artistas.html', **locals())
@@ -80,9 +80,9 @@ def passistas():
     estandarte = request.args.get('estandarte')
     bonde = request.args.get('bonde')
 
-    seed = request.args.get('seed')
+    rua = request.args.get('rua')
     pag_titulo = 'Página das Passistas!'
-    pag_descricao = seed
+    pag_descricao = rua
     pag_imagem = url_for('static', filename='avatares/passistas.png')
 
     return render_template('passistas.html', **locals())
@@ -91,10 +91,11 @@ def passistas():
 def cordoes():
     papo = request.args.get('papo')
     bonde = request.args.get('bonde')
+    estandarte = request.args.get('estandarte')
 
-    seed = request.args.get('seed')
+    rua = request.args.get('rua')
     pag_titulo = 'Página das Cordões!'
-    pag_descricao = seed
+    pag_descricao = rua
     pag_imagem = url_for('static', filename='avatares/cordoes.png')
 
     return render_template('cordoes.html', **locals())
@@ -106,9 +107,9 @@ def incautas():
     youtube = request.args.get('youtube')
     twitch = request.args.get('twitch')
 
-    seed = request.args.get('seed')
+    rua = request.args.get('rua')
     pag_titulo = 'Página das Incautas!'
-    pag_descricao = seed
+    pag_descricao = rua
     pag_imagem = url_for('static', filename='avatares/incautas.png')
 
     return render_template('incautas.html', **locals())

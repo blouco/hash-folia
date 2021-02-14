@@ -116,38 +116,37 @@ class Blouco(Divindade):
 
     @property
     def porta_estandarte(self):
-        return 'porta_estandarte/?seed={rua.codigo}&bonde={bonde.codigo}&estandarte={estandarte.codigo}'.format(**vars(self))
+        return 'porta_estandarte/?rua={rua.codigo}&estandarte={estandarte.codigo}&bonde={bonde.codigo}&papo={papo.codigo}'.format(**vars(self))
 
     @property
     def puxadoras(self):
-        return 'puxadoras/?seed={rua.codigo}&bonde={bonde.codigo}&estandarte={estandarte.codigo}&papo={papo.codigo}'.format(**vars(self))
+        return 'puxadoras/?rua={rua.codigo}&bonde={bonde.codigo}&estandarte={estandarte.codigo}&papo={papo.codigo}'.format(**vars(self))
 
     @property
     def artistas(self):
-        return 'artistas/?seed={rua.codigo}&bonde={bonde.codigo}&estandarte={estandarte.codigo}&trio={trio.codigo}'.format(**vars(self))
+        return 'artistas/?rua={rua.codigo}&estandarte={estandarte.codigo}&trio={trio.codigo}&papo={papo.codigo}'.format(**vars(self))
 
     @property
     def mixers(self):
-        return 'mixers/?seed={rua.codigo}&bonde={bonde.codigo}&estandarte={estandarte.codigo}&papo={papo.codigo}&trio={trio.codigo}'.format(**vars(self))
+        return 'mixers/?rua={rua.codigo}&estandarte={estandarte.codigo}&bonde={bonde.codigo}&trio={trio.codigo}&papo={papo.codigo}'.format(**vars(self))
 
     @property
     def passistas(self):
-        return 'passistas/?seed={rua.codigo}&estandarte={estandarte.codigo}&bonde={bonde.codigo}'.format(**vars(self))
+        return 'passistas/?rua={rua.codigo}&estandarte={estandarte.codigo}&bonde={bonde.codigo}'.format(**vars(self))
 
     @property
     def cordoes(self):
-        return 'cordoes/?seed={rua.codigo}&bonde={bonde.codigo}&papo={papo.codigo}'.format(**vars(self))
+        return 'cordoes/?rua={rua.codigo}&estandarte={estandarte.codigo}&bonde={bonde.codigo}&papo={papo.codigo}'.format(**vars(self))
 
     @property
     def incautas(self):
-        return 'incautas/?seed={rua.codigo}&papo={papo.codigo}&twitch=&youtube='.format(**vars(self))
+        return 'incautas/?rua={rua.codigo}&papo={papo.codigo}'.format(**vars(self))
 
 class Elemento():
     def __init__(self, blouco, frases):
         self.blouco = blouco
         self.frases = frases
         self.codigo = self.frases_str[0]
-        self.senha = self.frases_str[1]
 
     @property
     def frases_str(self):
