@@ -16,7 +16,7 @@ app = Flask(__name__)
 
 
 def clean(seed):
-    return re.sub('[^-A-Za-z0-9_]', '', seed)
+    return re.sub('[^-A-Za-z0-9_,]', '', seed)
 
 @app.route('/blouco/')
 def blouco():
