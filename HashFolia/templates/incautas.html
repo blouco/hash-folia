@@ -15,7 +15,7 @@
 		<!-- Conteúdo -->
 		<div class="container-fluid">
 			<div class="jumbotron jumbotron-fluid  bg-dark text-white">
-				{% if youtube or twitch %}
+				{% if youtube or twitch or doubletwitch %}
 					<h2 class="display-5 m-2 p-2"><b>Transmissão</b>
 					</h2>
 					<hr class="my-4 bg-light">
@@ -25,13 +25,28 @@
 								<div class="youtube-embed embed-responsive embed-responsive-4by3">
 									<iframe src="https://www.youtube.com/embed/{{ youtube }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 								</div>
-							{% elif twitch %}
-								{% for t in twitch.split(',') %}
-									<div class="youtube-embed embed-responsive embed-responsive-4by3">
-										<iframe src="https://player.twitch.tv/?channel={{ t }}&parent=ruas.bloucos.art" allowfullscreen="<allowfullscreen>">
-										</iframe>
+							{% endif %}
+							{% if twitch %}
+								<div class="youtube-embed embed-responsive embed-responsive-4by3">
+									<iframe src="https://player.twitch.tv/?channel={{ twitch }}&parent=ruas.bloucos.art" allowfullscreen="<allowfullscreen>">
+									</iframe>
+								</div>
+							{% endif %}
+							{% if doubletwitch %}
+								<div class="row">
+									<div class="col-sm-7">
+										<div class="youtube-embed embed-responsive embed-responsive-4by3">
+											<iframe src="https://player.twitch.tv/?channel={{ doubletwitch.0 }}&parent=ruas.bloucos.art" allowfullscreen="<allowfullscreen>">
+											</iframe>
+										</div>
 									</div>
-								{% endfor %}
+									<div class="col-sm-5">
+										<div class="youtube-embed embed-responsive embed-responsive-4by3">
+											<iframe src="https://player.twitch.tv/?channel={{ doubletwitch.2 }}&parent=ruas.bloucos.art" allowfullscreen="<allowfullscreen>">
+											</iframe>
+										</div>
+									</div>
+								</div>
 							{% endif %}
 					</div>
 					<br>

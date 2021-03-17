@@ -131,6 +131,8 @@ def incautas():
         youtube = clean(request.args.get('youtube'))
     if request.args.get('twitch'):
         twitch = clean(request.args.get('twitch'))
+    if request.args.get('doubletwitch'):
+        doubletwitch = clean(request.args.get('doubletwitch')).split(',')
 
     rua = clean(request.args.get('rua'))
     pag_titulo = 'Página das Incautas!'
