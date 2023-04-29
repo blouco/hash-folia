@@ -1,0 +1,12 @@
+{% set kiwiirc = "https://web.libera.chat/?nick=" + papo + "_%3F#" + papo %}
+<h2 class="display-4 m-2 p-2 text-center text-light">Papo
+	<a href="{{ kiwiirc }}"><i title="Link direto" class="fa-solid fa-arrow-up-right-from-square"></i></a>
+</h2>
+<div class="card-body">
+<!-- Chat -->
+<div class="papo col-xs-7 col-md-12 embed-responsive embed-responsive-1by1" style="width:100%; height:550px">
+	<iframe class="embed-responsive-item"
+			src="{{ kiwiirc }}"
+		style="width:100%; height:100%;"></iframe>
+</div>
+</div>

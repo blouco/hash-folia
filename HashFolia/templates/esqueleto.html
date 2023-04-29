@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+	{% block extrahead %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{{ pag_descricao }}">
+    <meta name="author" content="Carnaval">
+
+    <meta property="og:title" content="{{ pag_titulo }}">
+    <meta property="og:description" content="{{ pag_descricao }}">
+    <meta property="og:image" content="{{ pag_imagem }}">
+	<meta property="og:url" content="{{ request.url }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:site_name" content="Bloucos">
+    <meta name="twitter:image:alt" content="{{ pag_imagem }}">
+    <meta name="twitter:site" content="@_blouco">
+
+	<title>{{ pag_titulo }} - {{ pag_descricao }}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	<!-- Font Awesome -->
+	<script src="https://kit.fontawesome.com/23b37ecf4c.js" crossorigin="anonymous"></script>
+
+	<!-- Confete -->
+
+    <style type="text/css">
+        body {
+            background-color: #ffff9b;
+        }
+		a, a:hover {
+			color: #ffc107;
+		}
+		.text-white {
+			color: #ffff9b !important;
+		}
+		.bg-white {
+			background-color: #ffff9b !important;
+		}
+		.border-white {
+			border-color: #ffff9b !important;
+		}
+
+		.share-btn > a {
+			font-family: monospace;
+			padding: 5px 10px 5px 10px;
+			display: inline-block;
+		}
+		.share-btn i {
+		}
+
+		.share-btn > a:hover {
+			cursor: pointer;
+			color: #17a2b8 !important;
+			background-color: #ffff9b;
+		}
+    </style>
+	{% endblock %}
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg  navbar-dark bg-info">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+		<a class="navbar-brand text-white" href="/" title="Onde tá?"><i class="fa-solid fa-person-walking"></i> Segue o Blouco!</a>
+		<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+				<li class="nav-item">
+					<a class="nav-link text-white" href="/blouco/" title="Criação de Bloucos">
+						<i class="fa-solid fa-square-plus"></i>
+						HashFolia
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="https://pad.bloucos.art" title="O editor colaborativo que dá a liga">
+						<i class="fa-solid fa-feather-pointed"></i>
+						Pad
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="https://docs.bloucos.art" title="Documentação dos Bloucos"><i class="fa-solid fa-book-open"></i> Docs</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="https://instagram.com/_blouco">
+						<i title="Instagram" class="fab fa-instagram"></i></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="https://twitter.com/_blouco"><i title="Twitter" class="fab fa-twitter"></i></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="https://twitch.tv/segueoblouco"><i title="Twitch" class="fab fa-twitch"></i></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="https://github.com/blouco"><i title="Github" class="fab fa-github"></i></a>
+				</li>
+			</ul>
+		</div>
+    </nav>
+
+	{% block header %}
+	<!-- Cabeçalho -->
+	<div class="container-fluid text-center text-info">
+		<div class="card-body">
+			<h1 class="display-4" style="word-break: break-all">{{ pag_titulo }}</h1>
+			<img style="max-width: 300px; min-width: 150px" src="{{ pag_imagem }}" alt="{{ pag_titulo }}">
+	</div>
+
+	{% endblock %}
+
+    {% block conteudo %}{% endblock %}
+
+    <!-- Rodapé -->
+    
+    <div class="container-fluid text-right">
+        <h6 class="display-6"><a href="#" class="badge badge-dark">Topo ↑</a></h6>
+    </div>
+
+    <footer class="footer mt-auto py-3 bg-info">
+
+		<div id="share" class="card-body text-center text-white font-weight-bold text-monospace clearfix">
+			<p><i title="Facebook" class="fa-solid fa-share-nodes"></i> ESPALHA MAS NÃO EXPLANA 🗣️</p>
+
+			<div class="share-btn" data-title="Segue o Blouco!" data-description="{{ pag_descricao }}">
+				<a class="btn-facebook border border-white" data-id="fb">&gt; FB <i title="Facebook" class="fab fa-facebook-square"></i></a>
+				<a class="btn-twitter border border-white" data-id="tw">&gt; TT <i title="Twitter" class="fab fa-twitter"></i></a>
+				<a class="btn-telegram border border-white" data-id="tg">&gt; TG <i title="Telegram" class="fab fa-telegram"></i></a>
+				<a class="btn-whatsapp border border-white" data-id="wa">&gt; WA <i title="WhatsApp" class="fab fa-whatsapp"></i></a>
+			</div>
+		</div>
+
+        <div class="container">
+          <span class="text-white text-center">
+            <p>
+                    <a href="https://docs.bloucos.art">Docs</a> |
+					<a href="https://twitter.com/_blouco">Twitter</a> |
+					<a href="https://instagram.com/_blouco">Instagram</a> |
+                    <a href="https://github.com/blouco/">Github</a> |
+					<a href="/2021">Home antiga</a>
+                </p>
+				<p><a href="https://github.com/blouco/hash-folia">HashFolia</a> incorpora <a href="https://github.com/FlxB2/arrival_logograms">arrival_logograms</a>, <a href="https://github.com/luxcem/vizhash">vizhash</a>, <a href="https://avatars.dicebear.com/">DiceBear Avatars</a>. Bonequinhos construídos com <a href="http://www.avatarsinpixels.com/">Avatar in Pixels</a>.</p>
+            </div>
+          </span>
+        </div>
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+	<!-- Share Buttons -->
+	<script src="//cdn.jsdelivr.net/npm/share-buttons/dist/share-buttons.js"></script>
+
+<script>
+	jQuery( document ).ready(function() {
+		jQuery("#removerStreamingLink").click(function() {
+				alert("teste");
+			jQuery("#removerStreaming").submit();
+		});
+	});
+</script>
+
+	{% block extrafooter %}
+	{% endblock %}
+
+</body>
+
+</html>

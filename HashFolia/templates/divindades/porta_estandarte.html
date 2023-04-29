@@ -1,0 +1,314 @@
+{% extends 'esqueleto.html' %}
+
+{% block header %}
+	<!-- Cabeçalho -->
+	<div class="container-fluid text-center text-info">
+		<div class="card-body">
+			<h1 class="display-3">{{ pag_titulo }}</h1>
+		</div>
+	</div>
+{% endblock %}
+
+{% block conteudo %}
+
+	<!-- Estandarte -->
+
+			<div class="container-fluid text-monospace text-center text-info font-weight-bold">
+				<div class="text-info text-monospace text-center font-weight-bold">
+					<p>無</p>
+					<p></p>
+					<p>.</p>
+					<p>.</p>
+					<p>.</p>
+				</div>
+				<h2>
+					&lt;&lt;&lt;<br />
+					{{ seed }}<br />
+					&gt;&gt;&gt;
+				</h2>
+
+				<div class="text-info text-monospace text-center font-weight-bold">
+					<p>&nbsp;.&nbsp;</p>
+					<p>⎯⎯⎯⎯</p>
+					<p>&nbsp;.&nbsp;</p>
+				</div>
+
+				<h2 class="text-center display-4 text-info">
+					Selo
+				</h2>
+
+				<div class="row text-light text-monospace">
+						<div style="margin: 0 auto">
+							<div class="card-body bg-dark clearfix">
+								<div class="container-fluid text-center">
+								<a class="text-secondary" href="/blouco/{{ hash_md5 }}{{ sufixo_url}}" title="Saída">
+									<div style="word-break: break-all;" class="text-light">
+										{{ hash_md5 }}
+									</div>
+									<div>
+										<p>
+											<img style="width: 300px" src="{{ pag_imagem }}" alt="{{ pag_titulo }}" />
+										</p>
+									</div>
+								</a>
+
+								</div>
+							</div>
+						</div>
+				</div>
+
+
+				<div class="text-info text-monospace text-center font-weight-bold">
+					<p></p>
+					<p>&nbsp;.&nbsp;</p>
+					<p>⎯&nbsp;&nbsp;⎯</p>
+					<p>&nbsp;.&nbsp;</p>
+				</div>
+
+				<h2 class="text-center display-4 text-info">
+					Senhas
+				</h2>
+				<div class="row text-light text-monospace">
+						<div style="margin: 0 auto">
+
+							<div class="card-body bg-dark clearfix">
+								<div style="word-break: break-all;" title="Estandarte" class="text-white">
+										&amp; {{ blouco.estandarte }}
+										<img width="15px" height="15px" src="https://avatars.dicebear.com/api/identicon/{{ blouco.estandarte }}.svg?colors[]=yellow&colorLevel=200" />
+									</div>
+									<div style="word-break: break-all;" title="Bonde" class="text-danger">
+										<strong>/</strong> {{ blouco.bonde }}
+										<img width="15px" height="15px" src="https://avatars.dicebear.com/api/identicon/{{ blouco.bonde }}.svg?colors[]=red" />
+									</div>
+									<div style="word-break: break-all;" title="Trio" class="text-info">
+										<strong>&lt;</strong> {{ blouco.trio }}
+										<img width="15px" height="15px" src="https://avatars.dicebear.com/api/identicon/{{ blouco.trio }}.svg?colors[]=blue" />
+									</div>
+									<div style="word-break: break-all;" title="Papo" class="text-warning">
+										<strong>|</strong> {{ blouco.papo }}
+										<img width="15px" height="15px" src="https://avatars.dicebear.com/api/identicon/{{ blouco.papo }}.svg?colors[]=yellow" />
+									<div style="word-break: break-all;" title="Rua" class="text-success">
+										<strong>@</strong> {{ blouco.rua }}
+										<img width="15px" height="15px" src="https://avatars.dicebear.com/api/identicon/{{ blouco.rua }}.svg?colors[]=green" />
+								</div>
+									</div>
+							</div>
+						</div>
+				</div>
+				<div class="text-info text-monospace text-center font-weight-bold">
+					<p></p>
+					<p>⎯⎯⎯⎯</p>
+					<p>&nbsp;.&nbsp;</p>
+					<p>&nbsp;.&nbsp;</p>
+				</div>
+			<p>
+				<h2 class="text-center display-4 text-info">
+					Sorte
+				</h2>
+			</p>
+			<div class="row estandarte">
+				<div class="col-sm text-center text-light p-2 m-2">
+					<div class="row text-info">
+						<div class="col text-center">
+							<img class="border border-light rounded" src="/{{ taro.0.img }}" />
+						</div>
+						<div class="col text-center" style="font-size: 120px">
+							<p>
+								{{ gramas.0 }}
+							</p>
+							<p>
+								{{ gramas.1 }}
+							</p>
+						</div>
+						<div class="col text-center">
+							<img class="border border-white rounded" src="/{{ taro.1.img }}" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="text-info text-monospace text-center font-weight-bold">
+				<p></p>
+				<p>⎯ &nbsp;&nbsp;⎯</p>
+				<p>&nbsp;.&nbsp;</p>
+				<p>&nbsp;.&nbsp;</p>
+				<p>&nbsp;</p>
+			</div>
+
+		<!-- Elementos -->
+				<h2 class="text-center display-4 text-info">
+					Sistema
+				</h2>
+
+				<div class="row" style="margin: 30px auto">
+					<div class="col-2">
+					</div>
+					<div class="col-8 text-monospace text-white">
+						<div class="border border-secondary">
+							<div class="card-body bg-dark border border-white" style="word-break: break-all; border-width: 5px !important; min-height: 350px !important">
+								<h4 class="text-center" id="estandarte">
+									Estandarte
+								</h4>
+								<p class="text-center">
+									&amp;  {{ blouco.estandarte }}
+									<img width="20px" src="https://avatars.dicebear.com/api/identicon/{{ blouco.estandarte }}.svg?colors[]=yellow&colorLevel=200" />
+								</p>
+								<div class="text-secondary card-body" style="word-break: break-all">
+									<p>
+										{% set ether_url = "https://pad.bloucos.art/p/" + blouco.estandarte.codigo %}
+										{{ ether_url }}
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="text-info text-monospace text-center font-weight-bold">
+					<p></p>
+					<p>.</p>
+					<p>⎯⎯⎯⎯</p>
+					<p>⎯⎯⎯⎯</p>
+					<img height="100px" title="Agora é contigo" src="{{ url_for('static', filename='avatares/porta_estandarte.png') }}" />
+				</div>
+
+
+				<div class="row" style="margin: 30px auto">
+					<div class="col">
+					{% set estandarte = blouco.estandarte %}
+					{% include 'partes/estandarte.html' %}
+					</div>
+				</div>
+
+				<div class="text-info text-monospace text-center font-weight-bold">
+					<p>.</p>
+					<p>⎯⎯⎯⎯</p>
+					<p>⎯&nbsp;&nbsp;&nbsp;⎯</p>
+					<img height="100px" title="E surge um Blouco..." src="{{ url_for('static', filename='avatares/blouco.png') }}" />
+				</div>
+
+				<div class="row" style="margin: 30px auto">
+					<div class="col-3">
+					</div>
+					<div class="col-6 text-monospace text-danger">
+						<div class="card-body bg-dark border border-danger" style="word-break: break-all; border-width: 5px !important; min-height: 350px !important">
+							<h4 class="text-center" id="bonde">
+								Bonde <br/>
+							</h4>
+							<p class="text-center">
+								/ {{ blouco.bonde }}
+								<img width="20px" src="https://avatars.dicebear.com/api/identicon/{{ blouco.bonde }}.svg?colors[]=red" />
+							</p>
+							<div class="text-secondary card-body" style="word-break: break-all">
+								<p>
+									{{ "https://meet.jit.si/" + blouco.bonde.codigo }}
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row" style="margin: 30px auto">
+					<div class="col-6 text-info text-monospace">
+						<div class="card-body bg-dark border" style="word-break: break-all; border-color: #0000ff !important;; border-width: 5px !important; min-height: 350px !important">
+							<h4 class="text-center" id="trio">
+								Trio
+							</h4>
+							<p class="text-center">
+								&lt; {{ blouco.trio }}
+								<img width="20px" src="https://avatars.dicebear.com/api/identicon/{{ blouco.trio }}.svg?colors[]=blue" />
+							</p>
+							<div class="text-secondary card-body" style="word-break: break-all">
+								{% set room_url = "https://obs.ninja/?room=" + blouco.trio.codigo %}
+								{% set director_url = "https://obs.ninja/?director=" + blouco.trio.codigo %}
+								<p>
+									{{ room_url }}
+								</p>
+								<p>
+									{{ director_url }}
+								</p>
+							</div>
+						</div>
+					</div>
+
+
+					{% set kiwiirc = "https://web.libera.chat/?nick=Cordao_%3F#" + blouco.papo.codigo  %}
+
+
+					<div class="col-6 text-warning text-monospace">
+						<div class="card-body bg-dark border border-warning" style="word-break: break-all; border-width: 5px !important; min-height: 350px !important">
+						<h4 class="text-center" id="papo">
+							Papo <br/>
+						</h4>
+						<p class="text-center">
+							|  {{ blouco.papo }}
+							<img width="20px" src="https://avatars.dicebear.com/api/identicon/{{ blouco.papo }}.svg?colors[]=yellow" />
+						</p>
+						<div class="bg-dark text-secondary card-body" style="word-break: break-all">
+							<p>
+								{{ kiwiirc }}
+							</p>
+							<p>
+							irc.libera.chat:6697 #{{ blouco.papo.codigo }}
+							</p>
+						</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="row" style="margin: 30px auto">
+					<div class="col-12 text-center text-monospace">
+						<div class="bg-dark text-success border border-success" style="border-width: 5px !important">
+							<div class="card-body">
+							<h4 id="rua">
+								Rua
+							</h4>
+							<p class="text-center">
+								@  {{ blouco.rua }}
+								<img style="margin-left: 5px" width="20px" height="20px" src="https://avatars.dicebear.com/api/identicon/{{ blouco.rua }}.svg?colors[]=green" />
+							</p>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="text-info text-monospace text-center font-weight-bold">
+					<p>.</p>
+					<p>⎯&nbsp;&nbsp;&nbsp;⎯</p>
+					<p>⎯⎯⎯⎯</p>
+				</div>
+
+				<div class="text-info text-monospace text-center font-weight-bold">
+					<p></p>
+					<p>.</p>
+					<p>⎯&nbsp;&nbsp;&nbsp;⎯</p>
+					<p>⎯&nbsp;&nbsp;&nbsp;⎯</p>
+				</div>
+
+				<div class="row" style="margin: 30px auto">
+					<div class="col-12 text-center text-monospace">
+						<div class="bg-dark text-success">
+							<div class="card-body">
+										<div class="text-dark card-body" style="word-break: break-all; ">
+										<img width="60px" height="60px" src="/static/avatares/puxadoras.png" />
+											<h3 style="word-break: break-all" class="text-light font-weight-bold" id="puxadoras">Puxadora</h3>
+											{% set url_visao = request.url_root + blouco.puxadoras + sufixo_url %}
+											<p><a class="text-light" href="{{ url_visao }}">{{ url_visao }}</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="text-info text-monospace text-center font-weight-bold">
+					<a class="text-info" href="/blouco/{{ hash_md5 }}{{ sufixo_url}}" title="Saída">
+					<p>.</p>
+					<p>.</p>
+					<p>.</p>
+					</a>
+				</div>
+			</div>
+
+{% endblock %}

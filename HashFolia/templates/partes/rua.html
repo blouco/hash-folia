@@ -1,0 +1,65 @@
+<div class="container-fluid">
+	<div class="card-body">
+		<h1 class="display-4 text-light text-center" style="word-break: break-all;">{{ pag_titulo }}</h1>
+	</div>
+</div>
+
+{% if rua %}
+<div class="row topo">
+
+	<!-- Banner principal-->
+	<div class="container-fluid">
+		<div class="bg-transparent text-white">
+				<div style="width: 400px; margin: 0 auto" class="card-body bg-dark text-center clearfix">
+					<div title="Rua" class="text-success card-body">
+						<div class="container-fluid">
+							<img height="70px" src="https://avatars.dicebear.com/api/identicon/{{ rua }}.svg?colors[]=green" />
+							<img height="70px" src="{{ avatar }}" />
+						</div>
+						<br />
+					</div>
+					<div title="Elementos" class="text-left text-monospace">
+						{% if estandarte %}
+						<div title="Estandarte" class="text-white card-body">
+							<strong>&amp; {{ estandarte }}</strong>
+							<img style="float: right" width="20px" heigth="20px" src="https://avatars.dicebear.com/api/identicon/{{ estandarte }}.svg?colors[]=yellow&colorLevel=200" />
+						</div>
+						{% endif %}
+						{% if bonde %}
+						<div title="Bonde" class="text-danger card-body">
+							<strong>/ {{ bonde }}</strong>
+							<img style="float: right" width="20px" heigth="20px" src="https://avatars.dicebear.com/api/identicon/{{ bonde }}.svg?colors[]=red" />
+						</div>
+						{% endif %}
+						{% if trio %}
+						<div title="Trio" class="text-primary card-body">
+							<strong>&lt; {{ trio }}</strong>
+							<img style="float: right" width="20px" heigth="20px" src="https://avatars.dicebear.com/api/identicon/{{ trio }}.svg?colors[]=blue" />
+						</div>
+						{% endif %}
+						{% if papo %}
+						<div title="Papo" class="text-warning card-body">
+							<strong>| {{ papo }}</strong>
+							<img style="float: right" width="20px" heigth="20px" src="https://avatars.dicebear.com/api/identicon/{{ papo }}.svg?colors[]=yellow" />
+						</div>
+						{% endif %}
+
+						{% if youtube %}
+						<div title="Youtube" class="text-light card-body">
+							<strong>+ {{ youtube }}</strong>
+							<i style="display: block; float: right" class="fa-brands fa-youtube"></i>
+						</div>
+						{% endif %}
+						{% if twitch %}
+						<div title="Twitch" class="text-light card-body">
+							<strong>+ {{ twitch }}</strong>
+							<i style="float: right" class="fa-brands fa-twitch"></i>
+						</div>
+						{% endif %}
+
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endif %}

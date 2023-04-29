@@ -1,0 +1,39 @@
+{% extends 'esqueleto.html' %}
+
+{% block header %}
+	<!-- Cabeçalho -->
+	<div class="container-fluid text-center text-info">
+		<div class="card-body">
+			<h1 class="display-3">{{ pag_titulo }}</h1>
+		</div>
+	</div>
+{% endblock %}
+
+{% block conteudo %}
+
+<div class="container">
+	<div class="container-fluid text-monospace text-center text-info font-weight-bold">
+		<p>無<br />. <br/>. <br/>.</p>
+	</div>
+    <div class="bg-info text-white">
+		<div class="card-body">
+				<form action="/blouco/" method="GET" class="text-center card-body">
+					<label for="semente"><h2>Semente</h2></label>
+				  <div class="form-group">
+					<input style="max-width: 350px; margin: 0 auto" type="text" class="form-control bg-dark text-white" id="semente" aria-describedby="sementeHelp" name="semente">
+					<p><small id="sementeHelp" class="form-text text-white">Esta semente será usada para gerar o Blouco.</small></p>
+
+				  <input type="submit" class="btn btn-dark" value="Abre alas">
+				  </div>
+				</form>
+			<hr class="my-4 bg-white">
+
+			{% set url_docs = "https://docs.bloucos.art/pt_BR/latest/hash-folia.html" %}
+			<a class="text-white" href="{{ url_docs }}"><h2 class="text-center">Docs <i title="Link direto" class="fa-solid fa-arrow-up-right-from-square"></i></h2></a>
+			<div class="manual col-xs-7 col-md-12 embed-responsive embed-responsive-1by1" style="width:100%; height:650px">
+				<iframe class="embed-responsive-item" src="{{ url_docs }}" style="width:100%; height:100%;"></iframe>
+			</div>
+		</div>
+    </div>
+</div>
+{% endblock %}

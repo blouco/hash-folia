@@ -1,0 +1,85 @@
+{% extends 'esqueleto.html' %}
+
+{% block header %}
+	<!-- Cabeçalho -->
+	<div class="container-fluid text-center text-info">
+		<div class="card-body">
+			<h1 class="display-4" style="word-break: break-all">{{ pag_titulo }}</h1>
+		</div>
+	</div>
+{% endblock %}
+
+{% block conteudo %}
+<div class="container">
+    <div class="jumbotron jumbotron-fluid bg-info text-white">
+			<div class="card-body">
+				<div class="card-body text-center">
+						<h2>Procurar por códigos</h2>
+						<p>Digite o código do <strong class="text-warning bg-dark">Papo</strong>, da <strong class="text-success bg-dark">Rua</strong> e do <em>streaming</em> desejado para entrar em um Blouco que esteja acontecendo. Maiúsculas importam; os desenhos de cada cor devem bater.</p>
+					<form action="/passantes/" method="GET">
+						<div class="form-group text-center bg-dark card-body" style="max-width: 500px; margin: 20px auto">
+							<div class="clearfix">
+								<p>
+									<img alt="Identicon" id="avatarPapo" width="35px" height="35px" src="https://avatars.dicebear.com/api/identicon/.svg?colors[]=yellow" />
+								</p>
+								<p>
+									<input type="text" class="form-control bg-dark text-warning" id="papo" aria-describedby="papoHelp" placeholder="Papo |" name="papo">
+								</p>
+							</div>
+							<div class="clearfix">
+								<p>
+									<img alt="Identicon" id="avatarRua"  width="35px" height="35px" src="https://avatars.dicebear.com/api/identicon/.svg?colors[]=green" />
+								</p>
+								<p>
+									<input type="text" class="form-control bg-dark text-success" id="rua" aria-describedby="ruaHelp" placeholder="Rua @" name="rua">
+								</p>
+							</div>
+							<div class="clearfix">
+								<p>
+									<i title="Ícone Twitch" class="fab fa-twitch fa-2xl text-light"></i>
+								</p>
+								<p>
+									<input type="text" class="form-control bg-dark text-light" id="twitch" aria-describedby="twitchHelp" placeholder="Twitch +" name="twitch">
+								</p>
+							</div>
+							<div class="clearfix">
+								<p>
+									<i title="Ícone Youtube" class="fab fa-youtube fa-2xl text-light"></i>
+								</p>
+								<p>
+									<input type="text" class="form-control bg-dark text-light" id="youtube" aria-describedby="youtubeHelp" placeholder="Youtube +" name="youtube">
+								</p>
+							</div>
+							<div class="clearfix">
+								<div>
+									<br /><input type="submit" class="btn btn-light" value="Procurar aqui">
+								</div>
+							</div>
+					  </div>
+				</form>
+			</div>
+
+			<hr class="my-4 bg-white">
+
+			{% set url_docs = "https://docs.bloucos.art/pt_BR/latest/" %}
+			<a class="text-white" href="{{ url_docs }}"><h2 class="text-center">Docs <i title="Link direto" class="fa-solid fa-arrow-up-right-from-square"></i></h2></a>
+			<div class="manual col-xs-7 col-md-12 embed-responsive embed-responsive-1by1" style="width:100%; height:650px">
+				<iframe class="embed-responsive-item" src="{{ url_docs }}" style="width:100%; height:100%;"></iframe>
+		</div>
+    </div>
+	</div>
+</div>
+{% endblock %}
+
+{% block extrafooter %}
+<script>
+	jQuery(document).ready(function(){
+		jQuery('#papo').on('input', function(e){
+			$('#avatarPapo')[0].src ='https://avatars.dicebear.com/api/identicon/' + $('#papo').val() + '.svg?colors[]=yellow'
+		});
+		jQuery('#rua').on('input', function(e){
+			$('#avatarRua')[0].src ='https://avatars.dicebear.com/api/identicon/' + $('#rua').val() + '.svg?colors[]=green'
+		});
+	});
+</script>
+{% endblock %}

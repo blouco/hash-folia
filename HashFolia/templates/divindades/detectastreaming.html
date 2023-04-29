@@ -1,0 +1,90 @@
+{% block stream %}
+
+{% if (not twitch) and (not youtube) %}
+<h2 class="display-4 m-2 p-2 text-light text-center">
+	⚠️ [ainda  sem streaming] ⚠️
+</h2>
+<div class="card-body" style="width: 70%; margin: 0 auto">
+	<p  class="text-dark bg-warning border border-warning rounded text-center card-body">
+	Após a transmissão ser iniciada, preencha umas das formas de <em>streaming</em> possíveis para atualizar esta página e os links de Caminhos
+	</p>
+</div>
+<div class="container-fluid" style="width: 90%; margin-left: auto; margin-right: auto">
+	<div class="card-body">
+		<div class="row">
+		  <div class="col-sm">
+			  <form method="GET" action="{{ request.path }}">
+				<div class="row justify-content-md-center">
+					<div>
+						{% for name, value in request.args.items() %}
+						{% if name not in ['youtube', 'twitch'] %}
+							<input type="hidden" name="{{ name }}" value="{{ value }}" />
+						{% endif %}
+						{% endfor %}
+						<input type="text" class="form-control" name="twitch" value="{{ twitch }}" aria-describedby="User do Twitch" />
+
+					</div>
+				</div>
+				<div class="row justify-content-md-center">
+					<div>
+					  <button type="submit" class="btn btn-primary">Twitch</button>
+					</div>
+				</div>
+			</form>
+		  </div>
+		  <div class="col-sm">
+			  <p class="display-4 text-center clearfix">
+				🔗
+				📽️
+			</p>
+		  </div>
+		  <div class="col-sm">
+			  <form method="GET" action="{{ request.path }}">
+				<div class="row justify-content-md-center">
+					<div>
+						{% for name, value in request.args.items() %}
+						{% if name not in ['youtube', 'twitch'] %}
+							<input type="hidden" name="{{ name }}" value="{{ value }}" />
+						{% endif %}
+						{% endfor %}
+						<input type="text" class="form-control" name="youtube" value="{{ youtube }}" aria-describedby="ID do Youtube" />
+					</div>
+				</div>
+				<div class="row justify-content-md-center">
+					<div>
+					  <button type="submit" class="btn btn-primary">Youtube</button>
+					</div>
+				</div>
+			</form>
+		  </div>
+		</div>
+	</div>
+</div>
+<p>&nbsp;</p>
+
+
+{% else %}
+
+	<h2 class="display-4 m-2 p-2 text-center text-light">
+		Transmissão
+		{% if youtube %}
+		<a href="https://www.youtube.com/watch?v={{ youtube }}"><i title="Link direto" class="fab fa-youtube"></i></a>
+		{% endif %}
+		{% if twitch %}
+		<a href="https://twitch.tv/{{ twitch }}"><i title="Link direto" class="fab fa-twitch"></i></a>
+		{% endif %}
+	</h2>
+	<div class="youtube-embed embed-responsive embed-responsive-4by3">
+		{% if youtube %}
+			<iframe src="https://www.youtube.com/embed/{{ youtube }}" frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+				allowfullscreen></iframe>
+		{% elif twitch %}
+			<iframe
+				src="https://player.twitch.tv/?channel={{ twitch }}&parent=bloucos.art"
+				allowfullscreen="<allowfullscreen>">
+			</iframe>
+		{% endif %}
+	</div>
+{% endif %}
+{% endblock %}

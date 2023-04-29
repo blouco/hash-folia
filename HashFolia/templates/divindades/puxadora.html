@@ -1,0 +1,94 @@
+{% extends 'esqueleto.html' %}
+
+{% block header %}
+{% include "partes/rua.html" %}
+
+<div class="text-light text-monospace text-center font-weight-bold">
+	<p></p>
+	<p>.</p>
+	<p>⎯&nbsp;&nbsp;&nbsp;⎯</p>
+	<p>⎯&nbsp;&nbsp;&nbsp;⎯</p>
+</div>
+{% endblock %}
+
+{% block conteudo %}
+
+<!--Plano de Fundo-->
+<style type="text/css">
+	body {
+		background-color: #c62828;
+	}
+</style>
+
+
+<div class="container-fluid">
+		<!-- Conteúdo -->
+		<div class="container-fluid">
+
+
+				{% set estandarte = blouco.estandarte %}
+				{% include 'partes/estandarte.html' %}
+				{% include 'partes/bonde.html' %}
+
+
+
+		</div>
+</div>
+
+
+				<div class="card-body bg-dark text-success text-center text-monospace">
+							<div class="">
+								<div class="text-dark card-body" style="word-break: break-all; ">
+								<img width="60px" height="60px" src="/static/avatares/mixers.png" />
+									<h3 style="word-break: break-all" class="text-light font-weight-bold" id="mixers">Mixer</h3>
+									{% set url_visao = request.url_root + blouco.mixers %}
+									<p><a class="text-light" href="{{ url_visao }}">{{ url_visao }}</a></p>
+								</div>
+							</div>
+
+				</div>
+
+				{% include 'divindades/detectastreaming.html' %}
+
+				<div class="card-body bg-dark text-success text-center text-monospace">
+					<div class="">
+						<div class="text-dark card-body" style="word-break: break-all; ">
+						<img width="60px" height="60px" src="/static/avatares/passistas.png" />
+							<h3 style="word-break: break-all" class="text-light font-weight-bold" id="passistas">Passistas</h3>
+							{% set url_visao = request.url_root + blouco.passistas %}
+							<p><a class="text-light" href="{{ url_visao }}">{{ url_visao }}</a></p>
+						</div>
+					</div>
+				</div>
+
+				{% include 'partes/papo.html' %}
+
+				<div class="card-body bg-dark text-success text-center text-monospace">
+					<div class="">
+						<div class="text-dark card-body" style="word-break: break-all; ">
+						<img width="60px" height="60px" src="/static/avatares/cordoes.png" />
+							<h3 style="word-break: break-all" class="text-light font-weight-bold" id="cordoes">Cordão</h3>
+							{% set url_visao = request.url_root + blouco.cordoes %}
+							<p><a class="text-light" href="{{ url_visao }}">{{ url_visao }}</a></p>
+						</div>
+					</div>
+				</div>
+
+				<div class="card-body bg-dark text-success text-center text-monospace">
+					<hr class="my-4 bg-light">
+					<div class="">
+						<div class="text-dark card-body" style="word-break: break-all; ">
+						<img width="60px" height="60px" src="/static/avatares/passantes.png" />
+							<h3 style="word-break: break-all" class="text-light font-weight-bold" id="passantes">Passantes</h3>
+							{% set url_visao = request.url_root + blouco.passantes %}
+							<p><a class="text-light" href="{{ url_visao }}">{{ url_visao }}</a></p>
+						</div>
+					</div>
+				</div>
+
+
+				{% set caminho_docs = 'divindades/puxadoras.html' %}
+				{% include 'partes/docs.html' %}
+		</div>
+</div>
+{% endblock %}

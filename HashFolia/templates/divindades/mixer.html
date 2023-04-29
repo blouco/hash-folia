@@ -1,0 +1,70 @@
+{% extends 'esqueleto.html' %}
+
+{% block header %}
+{% include "partes/rua.html" %}
+
+<div class="text-light text-monospace text-center font-weight-bold">
+	<p></p>
+	<p>⎯⎯⎯⎯</p>
+	<p>.</p>
+	<p>⎯⎯⎯⎯</p>
+</div>
+{% endblock %}
+
+{% block conteudo %}
+
+ 
+<!--Plano de Fundo-->
+<style type="text/css">
+	body {
+		background-color: #FB2DB7;
+	}
+</style>
+
+
+<div class="container-fluid">
+		<!-- Conteúdo -->
+		<div class="container-fluid">
+				{% include 'divindades/detectastreaming.html' %}
+				{% include 'partes/estandarte.html' %}
+				{% include 'partes/bonde.html' %}
+				{% include 'partes/trio-palco.html' %}
+				{% include 'partes/papo.html' %}
+				{% set caminho_docs = 'divindades/mixers.html' %}
+				{% include 'partes/docs.html' %}
+		</div>
+				<h2 class="display-4 m-2 p-2 text-center text-light">Caminhos</h2>
+
+				<div class="card-body bg-dark text-success text-center text-monospace" style="width: 90%; margin-left: auto; margin-right: auto">
+							<div class="">
+								<div class="text-dark card-body" style="word-break: break-all; ">
+									<img width="60px" height="60px" src="/static/avatares/artistas.png" />
+									<h3 style="word-break: break-all" class="text-light font-weight-bold" id="artistas">Artista</h3>
+									{% set url_visao = request.url_root + blouco.artistas %}
+									<p><a class="text-light" href="{{ url_visao }}">{{ url_visao }}</a></p>
+								</div>
+							</div>
+
+						<hr class="my-4 bg-light">
+							<div class="">
+								<div class="text-dark card-body" style="word-break: break-all; ">
+								<img width="60px" height="60px" src="/static/avatares/passistas.png" />
+									<h3 style="word-break: break-all" class="text-light font-weight-bold" id="passistas">Passista</h3>
+									{% set url_visao = request.url_root + blouco.passistas %}
+									<p><a class="text-light" href="{{ url_visao }}">{{ url_visao }}</a></p>
+								</div>
+							</div>
+
+						<hr class="my-4 bg-light"> 
+							<div class="">
+								<div class="text-dark card-body" style="word-break: break-all; ">
+								<img width="60px" height="60px" src="/static/avatares/passantes.png" />
+									<h3 style="word-break: break-all" class="text-light font-weight-bold" id="passantes">Passante</h3>
+									{% set url_visao = request.url_root + blouco.passantes %}
+									<p><a class="text-light" href="{{ url_visao }}">{{ url_visao }}</a></p>
+								</div>
+							</div>
+			</div>
+		</div>
+</div>
+{% endblock %}

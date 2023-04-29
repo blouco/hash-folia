@@ -1,0 +1,38 @@
+{% extends 'esqueleto.html' %}
+
+{% block header %}
+{% include "partes/rua.html" %}
+
+<div class="text-light text-monospace text-center font-weight-bold">
+	<p></p>
+	<p>⎯&nbsp;&nbsp;⎯</p>
+	<p>⎯&nbsp;&nbsp;⎯</p>
+	<p>⎯&nbsp;&nbsp;⎯</p>
+</div>
+{% endblock %}
+
+{% block conteudo %}
+
+<!--Plano de Fundo-->
+<style type="text/css">
+	body {
+		background-color: #aa00ff;
+	}
+</style>
+
+
+
+<div class="container-fluid">
+
+		<!-- Conteúdo -->
+		<div class="container-fluid">
+
+				{% include 'divindades/detectastreaming.html' %}
+				{% include 'partes/papo.html' %}
+				{% set caminho_docs = 'divindades/passantes.html' %}
+				{% include 'partes/docs.html' %}
+
+		</div>
+
+</div>
+{% endblock %}
